@@ -11,9 +11,8 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <h1>QikTik</h1>
-      <Search />
       <SideNavbar />
+      <Search />
       <Chat />
       <Favorites />
       <Ticker />
