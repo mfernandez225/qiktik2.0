@@ -1,23 +1,20 @@
 import React from "react";
-import Chat from "./components/Chat";
-import Favorites from "./components/Favorites";
-import Search from "./components/Search";
-import StockTile from "./components/StockTile";
-import Ticker from "./components/Ticker";
-import SideNavbar from "./components/sideNavbar";
-
-
+import Home from "../../client/src/pages/Home/index.js";
+import Login from "../../client/src/pages/Login/index.js";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <SideNavbar />
-      <Search />
-      <Chat />
-      <Favorites />
-      <Ticker />
-      <StockTile />
+      <Router>
+        <Route exact path="/login">
+          <Home />
+        </Route>
+        <Route exact path="/">
+          <Login />
+        </Route>
+      </Router>
     </div>
   );
 }
