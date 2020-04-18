@@ -4,6 +4,8 @@ import Favorites from "./components/Favorites";
 import Search from "./components/Search";
 import StockTile from "./components/StockTile";
 import Ticker from "./components/Ticker";
+import SideNavbar from "./components/sideNavbar";
+
 import "./App.css";
 
 function App() {
@@ -11,6 +13,7 @@ function App() {
     <div className="App">
       <h1>QikTik</h1>
       <Search />
+      <SideNavbar />
       <Chat />
       <Favorites />
       <Ticker />
