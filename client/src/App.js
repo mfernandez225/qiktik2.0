@@ -6,6 +6,7 @@ import StockTile from "./components/StockTile";
 import Ticker from "./components/Ticker";
 import SideNavbar from "./components/sideNavbar";
 
+
 import "./App.css";
 
 function App() {
