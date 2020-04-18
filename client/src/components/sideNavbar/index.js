@@ -13,6 +13,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 
+import Logout from "../LogoutButton/index";
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -61,6 +63,8 @@ export default function PermanentDrawerLeft() {
         anchor="left"
       >
         <div className={classes.toolbar} />
+       
+        <Logout></Logout>
         <Divider />
         <List>
           {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
