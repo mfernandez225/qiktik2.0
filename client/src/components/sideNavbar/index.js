@@ -13,7 +13,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ShowChartIcon from "@material-ui/icons/ShowChart";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import HttpIcon from "@material-ui/icons/Http";
-
 import Logout from "../LogoutButton/index";
 
 const drawerWidth = 240;
@@ -21,6 +20,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    backgroundColor: "black",
   },
   appBar: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PermanentDrawerLeft() {
+export default function SideNavbar() {
   const classes = useStyles();
 
   return (
@@ -106,16 +106,8 @@ export default function PermanentDrawerLeft() {
             </ListItem>
           ))}
         </List>
-        <Logout></Logout>
+        <Logout />
       </Drawer>
-      <main align="right" className={classes.content}>
-        <div className={classes.toolbar} />
-        <h1>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos
-          temporibus maiores enim tempore minus obcaecati quia a eum aliquid. In
-          aut nobis, aliquid laborum quasi ullam aspernatur ab voluptates sequi?
-        </h1>
-      </main>
     </div>
   );
 }

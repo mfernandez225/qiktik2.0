@@ -8,7 +8,7 @@ import SideNavbar from "../../components/sideNavbar";
 
 const Home = () => {
   return (
-    <div>
+    <div align="center">
       <SideNavbar />
       <Search />
       <Chat />
