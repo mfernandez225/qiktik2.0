@@ -17,9 +17,7 @@ const MyButton = styled(Button)({
 const Logout = () => {
   return (
     <Link to="/">
-      <Button onClick={Login}>
-        <MyButton>Logout</MyButton>
-      </Button>
+      <MyButton onClick={Login}>Logout</MyButton>
     </Link>
   );
 };
