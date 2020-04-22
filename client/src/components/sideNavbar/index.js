@@ -48,7 +48,7 @@ export default function SideNavbar() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar position="relative" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h3" noWrap>
             QikTik{" "}
@@ -80,12 +80,7 @@ export default function SideNavbar() {
         <Divider />
         <Typography variant="h6">Stock Tracker</Typography>
         <List>
-          {[
-            "Stock Name or Symbol?",
-            "Stock Name or Symbol?",
-            "Stock Name or Symbol?",
-            "Stock Name or Symbol?",
-          ].map((text, index) => (
+          {["Stock Name or Symbol?"].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
                 {index % 2 === 0 ? <FavoriteIcon /> : <FavoriteIcon />}
