@@ -1,10 +1,14 @@
 import React from "react";
+import { Card, CardBody, CardHeader, CardTitle } from "reactstrap";
 
-const StockTile = () => {
+const StockTile = ({ selectedStock: { name, symbol } }) => {
   return (
-    <div>
-      <h1>Stock Tile</h1>
-    </div>
+    <Card className="border border-dark p-5 mt-5">
+      <CardHeader>
+        <CardTitle>Stock Name: {name}</CardTitle>
+      </CardHeader>
+      <CardBody>Stock Symbol: {symbol}</CardBody>
+    </Card>
   );
 };
 

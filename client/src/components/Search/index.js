@@ -3,8 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { makeStyles } from "@material-ui/core/styles";
 import stocks from "../stockData";
-// ticker 3166-1 alpha-2
-// ⚠️ No support for IE 11
+
 function stockToFlag(tickerSymbol) {
   return typeof String.fromSymbolPoint !== "undefined"
     ? tickerSymbol
@@ -25,13 +24,22 @@ const useStyles = makeStyles({
   },
 });
 
-export default function StockSelect() {
+// This is the where how we collect and display the selected stock.
+export default function StockSelect({ onChange }) {
   const classes = useStyles();
+
+  const handleChange = (e) => {
+    const stockIndex = e.target.getAttribute("data-option-index");
+    if (stockIndex) {
+      onChange(stocks[stockIndex]);
+    } else {
+      onChange(undefined);
+    }
+  };
 
   return (
     <Autocomplete
-      id="country-select-demo"
-      style={{ width: 300, position: "relative" }}
+      style={{ width: 500, position: "relative", marginTop: "10px" }}
       options={stocks}
       classes={{
         option: classes.option,
@@ -51,10 +59,10 @@ export default function StockSelect() {
           variant="outlined"
           inputProps={{
             ...params.inputProps,
-            autoComplete: "new-password", // disable autocomplete and autofill
           }}
         />
       )}
+      onChange={handleChange}
     />
   );
 }
