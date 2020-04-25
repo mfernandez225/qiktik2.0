@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { styled } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Login from "../../pages/Login/index.js";
+import { Button } from "reactstrap";
 
 const MyButton = styled(Button)({
   background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
@@ -16,8 +15,10 @@ const MyButton = styled(Button)({
 
 const Logout = () => {
   return (
-    <Link to="/">
-      <MyButton onClick={Login}>Logout</MyButton>
+    <Link to="/login">
+      <Button className="text-decoration-none text-light" color="link">
+        <MyButton> Logout </MyButton>
+      </Button>
     </Link>
   );
 };
