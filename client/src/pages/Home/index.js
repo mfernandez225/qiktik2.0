@@ -27,6 +27,7 @@ const Home = () => {
           {selectedStock && <StockTile selectedStock={selectedStock} />}
           <Favorites />
           <Ticker />
+          <sAndPoor />
           <Chat />
         </Col>
       </Row>

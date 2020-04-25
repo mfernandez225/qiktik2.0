@@ -1,19 +1,14 @@
 import React from "react";
-import { Nav, NavItem, NavLink } from "reactstrap";
+import { Nav, NavLink } from "reactstrap";
 import Logout from "../LogoutButton/index";
-
+import SAndPoor from "../sAndPoor/index";
+import DOW from "../dOW/index";
 const SideNavbar = (props) => {
   return (
     <div className="">
       <h1 className="">QikTik</h1>
-      <Nav vertical>
-        <NavItem>
-          <NavLink href="#">DOW</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="#">S&P</NavLink>
-        </NavItem>
-      </Nav>
+      <SAndPoor />
+      <DOW />
       <hr />
       <h5>Saved Stocks / Favorites</h5>
       <Nav vertical>
