@@ -3,10 +3,7 @@ const data = [
     symbol: "A",
     name: "Agilent Technologies Inc",
   },
-  {
-    symbol: "AAIT",
-    name: "iShares MSCI All Country Asia Information Technology Index Fund",
-  },
+
   {
     symbol: "AAL",
     name: "American Airlines Group",
@@ -35,14 +32,7 @@ const data = [
     symbol: "AAPL",
     name: "Apple Inc.",
   },
-  {
-    symbol: "AAPL",
-    name: "Apple Inc.",
-  },
-  {
-    symbol: "AAVL",
-    name: "Avalanche Biotechnologies, Inc.",
-  },
+
   {
     symbol: "AAWW",
     name: "Atlas Air Worldwide Holdings",
@@ -167,10 +157,7 @@ const data = [
     symbol: "ACOR",
     name: "Acorda Therapeutics, Inc.",
   },
-  {
-    symbol: "ACPW",
-    name: "Active Power, Inc.",
-  },
+
   {
     symbol: "ACRX",
     name: "AcelRx Pharmaceuticals, Inc.",

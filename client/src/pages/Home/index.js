@@ -6,29 +6,38 @@ import StockTile from "../../components/StockTile";
 import Ticker from "../../components/Ticker";
 import SideNavbar from "../../components/sideNavbar";
 import { Container, Row, Col } from "reactstrap";
+import useAuth from "../../utils/use-auth";
+import API from "../../utils/API";
 
 const Home = () => {
+  const { loginRequired } = useAuth();
   const [selectedStock, setSelectedStock] = useState();
+  const [favoriteStocks, setFavoriteStocks] = useState([]);
 
   useEffect(() => {
-    if (!selectedStock) return;
-    // Look up stock info
-    // Store result in state.
-  }, [selectedStock]);
+    loginRequired();
+  }, [loginRequired]);
+
+  useEffect(() => {
+    API.getFavorites().then(({ data: favorites }) => {
+      setFavoriteStocks(favorites);
+    });
+  }, []);
 
   return (
-    <Container fluid={true}>
+    <Container fluid={true} className="min-vh-100">
       <Row md="3">
-        <Col className="text-left">
-          <SideNavbar />
-        </Col>
+        <SideNavbar favoriteStocks={favoriteStocks} />
         <Col className="text-center">
           <Search onChange={(stock) => setSelectedStock(stock)} />
-          {selectedStock && <StockTile selectedStock={selectedStock} />}
-          <Favorites />
-          <Ticker />
+          {selectedStock && (
+            <StockTile
+              selectedStock={selectedStock}
+              favoriteStocks={favoriteStocks}
+              setFavoriteStocks={setFavoriteStocks}
+            />
+          )}
           <sAndPoor />
-          <Chat />
         </Col>
       </Row>
     </Container>

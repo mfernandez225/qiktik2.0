@@ -12,6 +12,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "react": "^16.13.1",
+    "react-bootstrap-typeahead": "^4.2.2",
     "react-dom": "^16.13.1",
     "react-google-login": "^5.1.10",
     "react-router-dom": "^5.1.2",

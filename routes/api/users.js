@@ -1,39 +1,20 @@
-
-const userController = require("../../controllers/userController");
-const User = require('../../models/User.js')
+const User = require("../../models/User.js");
 const router = require("express").Router();
-// Matches with "/api/user"
+const { authenticate } = require("../../utils/auth");
 
-// router.get('/api/users', (req,res)=>{
-//   if(err) throw err
-//   console.log('helklooooo')
-//   res.send('hellluuuu')
-// })
+router.route("/favorite-stocks").get((req, res) => {
+  authenticate(req, res, (user) => {
+    res.send(user.stocks);
+  });
+});
 
-// router.route("/")
-// .get((req,res)=>{
-  
-//   booksController.create
-//   res.send("thisworks")
-
-
-// })
-  
-router.route("/")
-  .get(userController.create)
-
-
-
-// router.route('/')
-// .get(userController.create)
-  // .get(userController.findAll)
-//   .post(userController.create);
-
-// Matches with "/api/user/:id"
-// router
-//   .route("/:id")
-//   .get(userController.findById)
-//   .put(userController.update)
-//   .delete(userController.remove);
+router.route("/save-stock").post((req, res) => {
+  authenticate(req, res, (user) => {
+    const { name, symbol } = req.body;
+    user.stocks.addToSet({ name, symbol });
+    user.save();
+    res.send(user);
+  });
+});
 
 module.exports = router;
