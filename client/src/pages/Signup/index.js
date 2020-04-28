@@ -1,37 +1,54 @@
 import React, { useState } from "react";
 import { Alert } from "reactstrap";
 import API from "../../utils/API";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginError, setLoginError] = useState();
+  const [signupError, setSignupError] = useState();
   const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoginError(null);
+    setSignupError(null);
     try {
       const {
         data: { token },
-      } = await API.login(email, password);
+      } = await API.signup(firstName, lastName, email, password);
       localStorage.setItem("token", token);
       history.push("/");
     } catch (error) {
-      setLoginError("Invalid email or password");
+      setSignupError("Invalid email or password");
     }
   };
 
   return (
-    <div className="">
-      <h1 className="mt-5">Login Page</h1>
-      {loginError && <Alert color="danger">{loginError}</Alert>}
+    <div>
+      <h1 className="mt-5">User Sign Up</h1>
+      {signupError && <Alert color="danger">{signupError}</Alert>}
       <form className="m-5" onSubmit={handleSubmit}>
         <input
           className="input-group p-3"
+          name="firstName"
+          placeholder="First name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.currentTarget.value)}
+        />
+        <input
+          className="input-group p-3"
+          name="lastName"
+          placeholder="Last name"
+          value={lastName}
+          onChange={(e) => setLastName(e.currentTarget.value)}
+        />
+        <input
+          className="input-group p-3"
           name="email"
-          placeholder="Login (Email)"
+          placeholder="Email"
+          type="email"
           value={email}
           onChange={(e) => setEmail(e.currentTarget.value)}
         />
@@ -44,14 +61,11 @@ const Login = () => {
           onChange={(e) => setPassword(e.currentTarget.value)}
         />
         <button className="btn btn-lg btn-dark m-5" type="submit">
-          Log In
+          Sign Up
         </button>
-        <Link to="./Signup">
-          <button className="btn btn-lg btn-secondary m-5">Sign Up</button>
-        </Link>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Signup;

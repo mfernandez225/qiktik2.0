@@ -1,22 +1,27 @@
 import axios from "axios";
 
+const headers = () => ({
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem("token")}`,
+  },
+});
+
 export default {
-  // Gets all users
-  getusers: function() {
-    return axios.get("/api/users");
-    
-    // return console.log("sheelloooo")
+  signup: (firstName, lastName, email, password) => {
+    return axios.post("/api/signup/new", {
+      firstName,
+      lastName,
+      email,
+      password,
+    });
   },
-  // Gets the user with the given id
-  getuser: function(id) {
-    return axios.get("/api/users/" + id);
+  login: (email, password) => {
+    return axios.post("/api/auth/login", { email, password });
   },
-  // Deletes the user with the given id
-  deleteuser: function(id) {
-    return axios.delete("/api/users/" + id);
+  getFavorites: () => {
+    return axios.get("/api/users/favorite-stocks", headers());
   },
-  // Saves a user to the database
-  saveuser: function(userData) {
-    return axios.post("/api/users", userData);
-  }
+  saveFavorite: (selectedStock) => {
+    return axios.post("/api/users/save-stock", { ...selectedStock }, headers());
+  },
 };
