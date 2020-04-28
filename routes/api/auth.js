@@ -16,6 +16,8 @@ router.route("/login").post((req, res) => {
     }
     if (bcrypt.compareSync(password, user.passwordHash)) {
       const { id } = user;
+      // Once the users password is matched we generate a token and sign it to the user
+
       const token = jwt.sign(
         { exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 365, userId: id },
         process.env.JWT_SECRET

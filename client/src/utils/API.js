@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// You use the "Bearer" token to get a new access token.
+// Sending an authorization header along with our request is authorizing the request
 const headers = () => ({
   headers: {
     Authorization: `Bearer ${localStorage.getItem("token")}`,
