@@ -4,12 +4,13 @@ import { Typeahead } from "react-bootstrap-typeahead";
 
 export default function StockSelect({ onChange }) {
   const ref = useRef();
-
+  // Clears stock search once a card is displayed
   const handleChange = (selected) => {
     onChange(selected[0]);
     ref.current.clear();
   };
 
+  // typeahead is a reactstrap feature. Searching stock names or symbols
   return (
     <Typeahead
       className="input-group mt-5 mb-5 border border-dark"

@@ -1,6 +1,8 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
+// Verifying that the user is suppossed to be viewing the page. This will be beneficial when we decide to add additional features/pages.
+
 const authenticate = (req, res, callback) => {
   const { authorization } = req.headers;
   const token = authorization.split(" ")[1];

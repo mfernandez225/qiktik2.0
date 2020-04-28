@@ -7,6 +7,8 @@ const Logout = () => {
   const history = useHistory();
   const { logOut } = useAuth();
 
+  // Logs the user out and clears the history and token
+
   const handleLogout = () => {
     logOut();
     history.push("/login");

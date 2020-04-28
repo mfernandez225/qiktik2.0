@@ -9,6 +9,8 @@ import { Container, Row, Col } from "reactstrap";
 import useAuth from "../../utils/use-auth";
 import API from "../../utils/API";
 
+// loginRequired coming from useAuth in utils folder, ensuring that the user can't access qiktik without being logged in.
+
 const Home = () => {
   const { loginRequired } = useAuth();
   const [selectedStock, setSelectedStock] = useState();
@@ -27,6 +29,7 @@ const Home = () => {
   return (
     <Container fluid={true} className="min-vh-100">
       <Row md="3">
+        {/* User is selecting and displaying favorite stocks from stock tile to side navbar */}
         <SideNavbar favoriteStocks={favoriteStocks} />
         <Col className="text-center">
           <Search onChange={(stock) => setSelectedStock(stock)} />
