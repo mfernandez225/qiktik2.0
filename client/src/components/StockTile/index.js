@@ -1,15 +1,64 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+// import Chart from "../../components/Chart";
+// import SymbolPage from "../../components/SymbolPage/stockPage";
 import { Card, CardBody, CardHeader, CardTitle } from "reactstrap";
 
-const StockTile = ({ selectedStock: { name, symbol } }) => {
-  return (
-    <Card className="border border-dark p-5 mt-5">
-      <CardHeader>
-        <CardTitle>Stock Name: {name}</CardTitle>
-      </CardHeader>
-      <CardBody>Stock Symbol: {symbol}</CardBody>
-    </Card>
-  );
-};
+const StockTile = ({ selectedStock: {symbol} }) => {
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [names, setNames] = useState([]);
+  const [tickersymbol, settickerSymbol] = useState([]);
+  const [items, setItems] = useState([]);
+  const [marketcap, setMarketCap] = useState([]);
+  const [peratio, setPERatio] = useState([]);
+  useEffect(() => {
+    // fetch("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol +"&apikey=6QFBH662YTYIW2BW")
+    fetch("https://sandbox.iexapis.com/stable/stock/" + symbol + "/quote/2?token=Tpk_8ffdae4873fd4f08a97e679741d27746")
+    
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
 
+          setNames(result["companyName"]);
+          settickerSymbol(result["symbol"]);
+          setItems(result["latestPrice"]);
+          setMarketCap(result["marketCap"]);
+          setPERatio(result["peRatio"]);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+  }, []);
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  } else if (!isLoaded) {
+    return <div>Loading...</div>;
+  } else {
+    return (
+          <Card className="border border-dark p-5 mt-5"> 
+            <CardHeader>
+              <CardTitle> STOCKS </CardTitle>
+            </CardHeader>
+            <CardBody>
+            <ul>
+                  <li style={{ listStyleType: "none" }}> Company: {names} </li>
+                  <li style={{ listStyleType: "none" }}> Symbol: {tickersymbol} </li>
+                  <li style={{ listStyleType: "none" }}> Current Price: ${items} </li>
+                  <li style={{ listStyleType: "none" }}> Market Cap: ${marketcap} </li>
+                  <li style={{ listStyleType: "none" }}> PE Ratio: {peratio} </li>
+                </ul>
+            </CardBody>
+            <CardBody>
+              {/* <SymbolPage /> */}
+              {/* <Chart /> */}
+            </CardBody>
+          </Card>
+    );
+
+  }
+};
 export default StockTile;
