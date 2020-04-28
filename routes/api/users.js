@@ -8,6 +8,8 @@ router.route("/favorite-stocks").get((req, res) => {
   });
 });
 
+// Users info is being checked against hashed token so it can store stocks to them in the database
+
 router.route("/save-stock").post((req, res) => {
   authenticate(req, res, (user) => {
     const { name, symbol } = req.body;

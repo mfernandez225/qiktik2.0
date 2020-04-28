@@ -3,6 +3,10 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+// Installed and imported bcrypt to hash and salt users info to keep secure
+// JWT = JSON Web Token / encodes users information into a token that is then used to store whatever they favorite using that token
+// We are using a Salt to safeguard user information and Hashing as well
+
 router.route("/salt").get((req, res) => {
   res.send(bcrypt.genSaltSync(10));
 });
@@ -23,6 +27,7 @@ router.route("/new").post((req, res) => {
       user.save();
       const token = jwt.sign(
         {
+          // This is a page time out set for 1 year. We can manage the length if we want a user to time out after being on the page for a set period of time.
           exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 365,
           userId: user.id,
         },

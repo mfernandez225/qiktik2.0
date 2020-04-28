@@ -12,6 +12,7 @@ const SideNavbar = ({ favoriteStocks }) => {
         <DOW />
         <hr />
         <h5 className="text-light">Saved Stocks / Favorites</h5>
+        {/* Displaying users selected favorite stocks */}
         <Nav vertical>
           {favoriteStocks.map(({ symbol }) => (
             <p key={symbol}>{symbol}</p>
