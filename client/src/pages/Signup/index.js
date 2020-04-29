@@ -33,21 +33,21 @@ const Signup = () => {
       {signupError && <Alert color="danger">{signupError}</Alert>}
       <form className="m-5" onSubmit={handleSubmit}>
         <input
-          className="input-group p-3 fontMe text-center"
+          className="input-group p-3 fontMe text-center m-1"
           name="firstName"
           placeholder="First name"
           value={firstName}
           onChange={(e) => setFirstName(e.currentTarget.value)}
         />
         <input
-          className="input-group p-3 fontMe text-center"
+          className="input-group p-3 fontMe text-center m-1"
           name="lastName"
           placeholder="Last name"
           value={lastName}
           onChange={(e) => setLastName(e.currentTarget.value)}
         />
         <input
-          className="input-group p-3 fontMe text-center"
+          className="input-group p-3 fontMe text-center m-1"
           name="email"
           placeholder="Email"
           type="email"
@@ -55,7 +55,7 @@ const Signup = () => {
           onChange={(e) => setEmail(e.currentTarget.value)}
         />
         <input
-          className="input-group p-3 fontMe text-center "
+          className="input-group p-3 fontMe text-center m-1 "
           name="password"
           placeholder="Password"
           type="password"
