@@ -22,8 +22,17 @@
     max-width: 140vh;
 
 }
+#sup2{
+    border-radius: 25px;
+}
+
 #sup{
     background-color: #26b3a4;
+    border-radius: 25px;
+    
+}
+#sup:hover{
+    background-color: #1f8177;
 }
 input{
     background-color: #f9f9f9;
