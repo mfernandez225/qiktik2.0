@@ -1,0 +1,39 @@
+
+#loginBody {
+
+    background-image: url('../../assets//imgs/backgroundImage.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+   
+    justify-content: center;
+    align-items: center;
+
+}
+ #jumbo{
+     
+    background:#292929;
+    opacity: .97;
+    color: #000000;
+    min-height: 50vh;
+    max-width: 140vh;
+
+}
+#sup{
+    background-color: #26b3a4;
+}
+input{
+    background-color: #f9f9f9;
+
+}
+.fontMe{
+    
+    font-family: 'Courier New', Courier, monospace 
+}
+/* Verdana, Geneva, Tahoma, sans-serif */
+.colorMe{
+    color: #f9f9f9;
+ }
