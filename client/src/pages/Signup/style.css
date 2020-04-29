@@ -13,6 +13,14 @@
     align-items: center;
 
 }
+#sup{
+    background-color: #26b3a4;
+    border-radius: 25px;
+   
+}
+#sup:hover{
+    background-color: #1f8177;
+}
  #jumbo{
      
     background:#292929;
@@ -22,9 +30,8 @@
     max-width: 140vh;
 
 }
-#sup{
-    background-color: #26b3a4;
-}
+
+
 input{
     background-color: #f9f9f9;
 

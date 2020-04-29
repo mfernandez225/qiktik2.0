@@ -9,7 +9,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [signupError, setSignupError] = useState();
-  const history = useHistory();
+  const history = useHistory()
 
   const handleSubmit = async (e) => {
     e.preventDefault();

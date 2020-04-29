@@ -62,11 +62,11 @@ const Login = () => {
      
       
         <div className="text-right mt-2">
-        <button className="btn btn-lg btn-dark  m-2 fontMe " type="submit">
+        <button className="btn btn-lg btn-dark  m-2 fontMe  " id="sup2" type="submit">
           Log In
         </button>
         <Link to="./Signup">
-          <button id="sup" className="btn btn-lg btn-secondary m-2   fontMe">Sign Up</button>
+          <button id="sup" className="btn btn-lg btn-secondary m-2  fontMe">Sign Up</button>
         </Link>
         </div>
         
