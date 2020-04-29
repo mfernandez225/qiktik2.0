@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 // import SymbolPage from "../../components/SymbolPage/stockPage";
 import { Card, CardBody, CardHeader, CardTitle } from "reactstrap";
 import API from "../../utils/API";
+import AppC from "../../AppC";
 
 const StockTile = ({ setFavoriteStocks, selectedStock }) => {
   const [error, setError] = useState(null);
@@ -50,13 +51,13 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
     return <div>Loading...</div>;
   } else {
     return (
+      <Container-fluid>
       <Card className="border border-dark">
         <CardHeader>
-          <CardTitle> STOCKS </CardTitle>
+          <CardTitle style={{ listStyleType: "none" }}> {names} </CardTitle>
         </CardHeader>
         <CardBody>
           <ul>
-            <li style={{ listStyleType: "none" }}> Company: {names} </li>
             <li style={{ listStyleType: "none" }}> Symbol: {tickersymbol} </li>
             <li style={{ listStyleType: "none" }}> Current Price: ${items} </li>
             <li style={{ listStyleType: "none" }}>
@@ -65,13 +66,14 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
             </li>
             <li style={{ listStyleType: "none" }}> PE Ratio: {peratio} </li>
           </ul>
-          {/* <SymbolPage /> */}
-          {/* <Chart /> */}
           <button className="btn btn-dark" onClick={handleSave}>
             Save
           </button>
         </CardBody>
       </Card>
+      <br></br>
+          <AppC />
+      </Container-fluid>  
     );
   }
 };
