@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+require("dotenv").config();
 
 const SAndPoor = () => {
   // Note: the empty deps array [] means
@@ -8,7 +9,10 @@ const SAndPoor = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
   useEffect(() => {
-    fetch("api call")
+    fetch(
+      "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=INX&apikey=" +
+        process.env.REACT_APP_ALPHAVANTAGE_KEY
+    )
       .then((res) => res.json())
       .then(
         (result) => {

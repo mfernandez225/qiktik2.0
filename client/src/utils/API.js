@@ -1,5 +1,5 @@
 import axios from "axios";
-
+require("dotenv").config();
 // Sending an authorization header along with our request is authorizing the request
 const headers = () => ({
   headers: {
