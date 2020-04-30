@@ -27,10 +27,12 @@ const Home = () => {
     <Container fluid={true} className="min-vh-100">
       <Row md="3">
         {/* User is selecting and displaying favorite stocks from stock tile to side navbar */}
-        <SideNavbar
-          favoriteStocks={favoriteStocks}
-          setFavoriteStocks={setFavoriteStocks}
-        />
+        <Col style={{ marginLeft: "-15px" }}>
+          <SideNavbar
+            favoriteStocks={favoriteStocks}
+            setFavoriteStocks={setFavoriteStocks}
+          />
+        </Col>
         <Col className="text-center">
           <Search onChange={(stock) => setSelectedStock(stock)} />
           {selectedStock && (
