@@ -87,14 +87,14 @@ class AppC extends Component {
           <h2>Charts and google maps with React.</h2>
         </div> */}
         <div className="container">
-          <div className="nav">
+          <div className="nav justify-content-center">
             {/* <button type='button' className={"btn btn-d3 " + (this.state.selected === 1 ? 'active' : '')} onClick={this.hubSpotInD3Selected}>HubSpot + D3</button>
             <button type='button' className={"btn btn-d3 " + (this.state.selected === 2 ? 'active' : '')} onClick={this.googleInD3Selected}>Google + D3</button>
             <button type='button' className={"btn btn-highchart " + (this.state.selected === 3 ? 'active' : '')} onClick={this.hubSpotInHighchartSelected}>HubSpot + Highchart</button> */}
             <button
               type="button"
               className={
-                "btn btn-highchart " +
+                "btn btn-primary btn-highchart mt-2" +
                 (this.state.selected === 4 ? "active" : "")
               }
               onClick={this.googleInHighchartSelected}
