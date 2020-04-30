@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Chat from "../../components/Chat";
-import Favorites from "../../components/Favorites";
 import Search from "../../components/Search";
 import StockTile from "../../components/StockTile";
-import Ticker from "../../components/Ticker";
 import SideNavbar from "../../components/sideNavbar";
 import { Container, Row, Col } from "reactstrap";
 import useAuth from "../../utils/use-auth";
