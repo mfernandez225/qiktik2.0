@@ -6,7 +6,7 @@ import { googStock as googData } from "./data/googStock";
 import ChartHighstock from "./ChartHighstock";
 // import MapWithStops from './MapWithStops';
 import * as _ from "lodash";
-import "./AppC.css";
+// import "./AppC.css";
 
 class AppC extends Component {
   constructor(props) {
