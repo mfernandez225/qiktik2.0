@@ -40,9 +40,9 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
       );
   }, [symbol]);
 
-  const handleSave = () => {
-    setFavoriteStocks((prev) => [...prev, selectedStock]);
-    API.saveFavorite(selectedStock);
+  const handleSave = async () => {
+    const response = await API.saveFavorite(selectedStock);
+    setFavoriteStocks(response.data);
   };
 
   if (error) {
@@ -52,28 +52,34 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
   } else {
     return (
       <Container-fluid>
-      <Card className="border border-dark">
-        <CardHeader>
-          <CardTitle style={{ listStyleType: "none" }}> {names} </CardTitle>
-        </CardHeader>
-        <CardBody>
-          <ul>
-            <li style={{ listStyleType: "none" }}> Symbol: {tickersymbol} </li>
-            <li style={{ listStyleType: "none" }}> Current Price: ${items} </li>
-            <li style={{ listStyleType: "none" }}>
-              {" "}
-              Market Cap: ${marketcap}{" "}
-            </li>
-            <li style={{ listStyleType: "none" }}> PE Ratio: {peratio} </li>
-          </ul>
-          <button className="btn btn-dark" onClick={handleSave}>
-            Save
-          </button>
-        </CardBody>
-      </Card>
-      <br></br>
-          <AppC />
-      </Container-fluid>  
+        <Card className="border border-dark">
+          <CardHeader>
+            <CardTitle style={{ listStyleType: "none" }}> {names} </CardTitle>
+          </CardHeader>
+          <CardBody>
+            <ul>
+              <li style={{ listStyleType: "none" }}>
+                {" "}
+                Symbol: {tickersymbol}{" "}
+              </li>
+              <li style={{ listStyleType: "none" }}>
+                {" "}
+                Current Price: ${items}{" "}
+              </li>
+              <li style={{ listStyleType: "none" }}>
+                {" "}
+                Market Cap: ${marketcap}{" "}
+              </li>
+              <li style={{ listStyleType: "none" }}> PE Ratio: {peratio} </li>
+            </ul>
+            <button className="btn btn-dark" onClick={handleSave}>
+              Save
+            </button>
+          </CardBody>
+        </Card>
+        <br></br>
+        <AppC />
+      </Container-fluid>
     );
   }
 };

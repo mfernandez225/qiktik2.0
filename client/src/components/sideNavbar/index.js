@@ -3,7 +3,14 @@ import { Nav, NavLink } from "reactstrap";
 import Logout from "../LogoutButton/index";
 import SAndPoor from "../sAndPoor/index";
 import DOW from "../dOW/index";
-const SideNavbar = ({ favoriteStocks }) => {
+import API from "../../utils/API";
+
+const SideNavbar = ({ favoriteStocks, setFavoriteStocks }) => {
+  const handleDelete = async (favoriteStock) => {
+    const response = await API.deleteFavorite(favoriteStock);
+    setFavoriteStocks(response.data);
+  };
+
   return (
     <div className="min-vh-100 d-flex flex-column justify-content-between bg-secondary p-3">
       <div className="text-left">
@@ -14,8 +21,13 @@ const SideNavbar = ({ favoriteStocks }) => {
         <h5 className="text-light">Saved Stocks / Favorites</h5>
         {/* Displaying users selected favorite stocks */}
         <Nav vertical>
-          {favoriteStocks.map(({ symbol }) => (
-            <p key={symbol}>{symbol}</p>
+          {favoriteStocks.map((favoriteStock) => (
+            <div>
+              <p key={favoriteStock._id}>{favoriteStock.symbol}</p>
+              <button onClick={() => handleDelete(favoriteStock)}>
+                Delete
+              </button>
+            </div>
           ))}
         </Nav>
         <hr />

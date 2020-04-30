@@ -1,20 +1,19 @@
-
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component } from "react";
+import logo from "./logo.svg";
 // import { hubStock as hubData } from './data/hubStock';
-import { googStock as googData } from './data/googStock';
+import { googStock as googData } from "./data/googStock";
 // import ChartD3 from './ChartD3.jsx';
-import ChartHighstock from './ChartHighstock';
+import ChartHighstock from "./ChartHighstock";
 // import MapWithStops from './MapWithStops';
-import * as _ from 'lodash';
-import './AppC.css';
+import * as _ from "lodash";
+import "./AppC.css";
 
 class AppC extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: 1, 
-      // data: _.cloneDeep(hubData), 
+      selected: 1,
+      // data: _.cloneDeep(hubData),
       // title: 'HubSpot Stock in D3',
       // type: 'd3'
     };
@@ -56,8 +55,8 @@ class AppC extends Component {
     this.setState({
       selected: 4,
       data: _.cloneDeep(googData),
-      title: 'Google',
-      type: 'highchart'
+      title: "Google",
+      type: "highchart",
     });
   }
 
@@ -73,8 +72,10 @@ class AppC extends Component {
     let content;
     // if (this.state.type === 'd3')
     //   content = <ChartD3 data={this.state.data} title={this.state.title} />;
-    if (this.state.type === 'highchart')
-      content = <ChartHighstock data={this.state.data} title={this.state.title} />;
+    if (this.state.type === "highchart")
+      content = (
+        <ChartHighstock data={this.state.data} title={this.state.title} />
+      );
     // else if (this.state.type === 'gmaps') {
     //   content = <MapWithStops />;
     // }
@@ -90,12 +91,20 @@ class AppC extends Component {
             {/* <button type='button' className={"btn btn-d3 " + (this.state.selected === 1 ? 'active' : '')} onClick={this.hubSpotInD3Selected}>HubSpot + D3</button>
             <button type='button' className={"btn btn-d3 " + (this.state.selected === 2 ? 'active' : '')} onClick={this.googleInD3Selected}>Google + D3</button>
             <button type='button' className={"btn btn-highchart " + (this.state.selected === 3 ? 'active' : '')} onClick={this.hubSpotInHighchartSelected}>HubSpot + Highchart</button> */}
-            <button type='button' className={"btn btn-highchart " + (this.state.selected === 4 ? 'active' : '')} onClick={this.googleInHighchartSelected}>Display Stock Chart</button>
+            <button
+              type="button"
+              className={
+                "btn btn-highchart " +
+                (this.state.selected === 4 ? "active" : "")
+              }
+              onClick={this.googleInHighchartSelected}
+            >
+              Display Stock Chart
+            </button>
             {/* <button type='button' className={"btn btn-gmaps " + (this.state.selected === 5 ? 'active' : '')} onClick={this.gmapsSelected}>Places on GMaps</button> */}
           </div>
 
           {content}
-
         </div>
       </div>
     );

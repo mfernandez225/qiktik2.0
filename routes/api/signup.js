@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 // JWT = JSON Web Token / encodes users information into a token that is then used to store whatever they favorite using that token
 // We are using a Salt to safeguard user information and Hashing as well
 
-router.route("/new").post((req, res) => {
+router.route("/").post((req, res) => {
   const { firstName, lastName, email, password } = req.body;
   User.findOne({ email }, (error, user) => {
     if (error) {

@@ -9,7 +9,7 @@ const headers = () => ({
 
 export default {
   signup: (firstName, lastName, email, password) => {
-    return axios.post("/api/signup/new", {
+    return axios.post("/api/signup", {
       firstName,
       lastName,
       email,
@@ -20,9 +20,12 @@ export default {
     return axios.post("/api/auth/login", { email, password });
   },
   getFavorites: () => {
-    return axios.get("/api/users/favorite-stocks", headers());
+    return axios.get("/api/users/stocks", headers());
   },
   saveFavorite: (selectedStock) => {
-    return axios.post("/api/users/save-stock", { ...selectedStock }, headers());
+    return axios.post("/api/users/stocks", { ...selectedStock }, headers());
+  },
+  deleteFavorite: (favoriteStock) => {
+    return axios.delete(`/api/users/stocks/${favoriteStock._id}`, headers());
   },
 };
