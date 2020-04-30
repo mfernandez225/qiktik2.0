@@ -14,7 +14,11 @@ router.route("/login").post((req, res) => {
       invalidLogin(res);
       return;
     }
-    if (bcrypt.compareSync(password, user.passwordHash)) {
+    if (
+      password &&
+      user.passwordHash &&
+      bcrypt.compareSync(password, user.passwordHash)
+    ) {
       const { id } = user;
       // Once the users password is matched we generate a token and sign it to the user
 
