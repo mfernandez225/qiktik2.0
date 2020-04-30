@@ -51,7 +51,7 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
     return <div>Loading...</div>;
   } else {
     return (
-      <Container-fluid>
+      <div>
         <Card className="border border-dark">
           <CardHeader>
             <CardTitle style={{ listStyleType: "none" }}> {names} </CardTitle>
@@ -75,11 +75,10 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
             <button className="btn btn-dark" onClick={handleSave}>
               Save
             </button>
+            <AppC />
           </CardBody>
         </Card>
-        <br></br>
-        <AppC />
-      </Container-fluid>
+      </div>
     );
   }
 };
