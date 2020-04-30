@@ -17,7 +17,9 @@ const DOW = () => {
       .then(
         (result) => {
           setIsLoaded(true);
-          setItems(result["Global Quote"]["05. price"]);
+          if (result["Global Quote"]) {
+            setItems(result["Global Quote"]["05. price"]);
+          }
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
