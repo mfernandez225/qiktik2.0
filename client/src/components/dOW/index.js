@@ -10,7 +10,7 @@ const DOW = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
     fetch(
-      "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=DJI&apikey=" +
+      "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=DOW&apikey=" +
         process.env.REACT_APP_ALPHAVANTAGE_KEY
     )
       .then((res) => res.json())

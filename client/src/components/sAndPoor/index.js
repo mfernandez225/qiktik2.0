@@ -10,7 +10,7 @@ const SAndPoor = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
     fetch(
-      "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=INX&apikey=" +
+      "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=SDY&apikey=" +
         process.env.REACT_APP_ALPHAVANTAGE_KEY
     )
       .then((res) => res.json())
