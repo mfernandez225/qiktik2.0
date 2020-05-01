@@ -1,4 +1,5 @@
 
+
 #loginBody {
 
     background-image: url('../../assets//imgs/backgroundImage.png');
@@ -13,15 +14,28 @@
     align-items: center;
 
 }
+.transparent {
+    background-color:transparent;
+}
+
  #jumbo{
-     
+     width:75%;
     background:#292929;
     opacity: .97;
     color: #000000;
     min-height: 50vh;
     max-width: 140vh;
 
+    
 }
+
+@media only screen and (max-width: 400px) {
+    #jumbo{
+        width: 95%;
+    
+    
+    }
+      }
 #sup2{
     border-radius: 25px;
 }
@@ -38,11 +52,33 @@ input{
     background-color: #f9f9f9;
 
 }
+
+@font-face {
+    font-family: LEMONMILK;
+    src: url(../../assets/font/LEMONMILK-Regular.otf);
+    
+  }
+
+
+@font-face {
+    font-family: LEMONMILKLITE;
+    src: url(../../assets/font/LEMONMILK-Light.otf);
+    
+  }
+
 .fontMe{
     
-    font-family: 'Courier New', Courier, monospace 
+    font-family: "LEMONMILK"
+    /* 'Courier New', Courier, monospace */
+}
+.fontMeSmall{
+    
+    font-family: "LEMONMILKLITE"
+    /* 'Courier New', Courier, monospace */
 }
 /* Verdana, Geneva, Tahoma, sans-serif */
 .colorMe{
    color: #f9f9f9;
 }
+
+
