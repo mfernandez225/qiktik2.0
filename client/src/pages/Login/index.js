@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Alert ,Jumbotron, Button, Col, Row} from "reactstrap";
+import { Alert ,Jumbotron, Navbar,  NavbarBrand, Media} from "reactstrap";
 import API from "../../utils/API";
 import { useHistory, Link } from "react-router-dom";
 import "./style.css";
+import logo from "../../assets/imgs/qiktik2.png";
+
 
 const Login = () => {
   
@@ -24,35 +26,52 @@ const Login = () => {
       setLoginError("Invalid email or password");
     }
   };
-  
+  const imgStyle = {
+    maxHeight: 120,
+    maxWidth: 120,
+   
+  }
 
   return (
    
     
 
-   //loginBody is for css background image
+   //loginBody is f  
+  <div >
+  <Navbar  fixed="top" className="p-0 transparent" >
+    <NavbarBrand  className="mr-auto">  
+    
+     <Media left href="#" >
+        <Media object src={logo} alt="qiktik" style={imgStyle} className="p-1 ml-1"/>
+      </Media>
+  
+      </NavbarBrand>
+  
+  </Navbar>
+
+
+
+   
     <div id="loginBody" className="">
-      
-
 
       
-       <Jumbotron id="jumbo"  className="  w-75">
+       <Jumbotron id="jumbo"  >
        
       <h1   className="mt-1 fontMe text-white colorMe"  >Login</h1>
       {loginError && <Alert color="danger">{loginError}</Alert>}
     
     
-      <form className="m-5 " onSubmit={handleSubmit}>
+      <form className="m-5 "  onSubmit={handleSubmit}>
       
         <input
-          className="input-group p-3 m-1 fontMe"
+          className="input-group p-3 m-1 fontMeSmall text-center"
           name="email"
           placeholder="Login (Email)"
           value={email}
           onChange={(e) => setEmail(e.currentTarget.value)}
         />
         <input
-          className="input-group p-3 m-1 fontMe"
+          className="input-group p-3 m-1 fontMeSmall text-center"
           name="password"
           placeholder="Password"
           type="password"
@@ -60,22 +79,22 @@ const Login = () => {
           onChange={(e) => setPassword(e.currentTarget.value)}
         />
      
-      
+    
         <div className="text-right mt-2">
-        <button className="btn btn-lg btn-dark  m-2 fontMe  " id="sup2" type="submit">
+        <button className="btn btn-lg btn-dark  m-2 fontMeSmall "  id="sup2" type="submit">
           Log In
         </button>
         <Link to="./Signup">
-          <button id="sup" className="btn btn-lg btn-secondary m-2  fontMe">Sign Up</button>
+          <button id="sup" className="btn btn-lg btn-secondary m-2  fontMeSmall">Sign Up</button>
         </Link>
         </div>
-        
+    
       </form>
       
       </Jumbotron>
 
     </div>
-
+    </div>
   );
 };
 

@@ -22,7 +22,7 @@
     background-color: #1f8177;
 }
  #jumbo{
-     
+     width: 75%;
     background:#292929;
     opacity: .97;
     color: #000000;
@@ -30,15 +30,41 @@
     max-width: 140vh;
 
 }
+.transparent {
+    background-color:transparent;
+}
+@media only screen and (max-width: 400px) {
+    #jumbo{
+        width: 95%;
+    
+    
+    }
+      }
 
+
+/* 
+@font-face {
+    font-family: LEMONMILK;
+    src: url(../../assets/font/LEMONMILK-Regular.otf);
+ 
+  }
+
+
+
+@font-face{
+    font-family: LEMONMILKLITE;
+    src: url(../../assets/font/LEMONMILK-Light.otf);
+} */
+.fontMe{
+    
+    font-family: "LEMONMILK"
+    /* 'Courier New', Courier, monospace */
+}
 
 input{
     background-color: #f9f9f9;
+    /* font-family: "LEMONMILKLITE"; */
 
-}
-.fontMe{
-    
-    font-family: 'Courier New', Courier, monospace 
 }
 /* Verdana, Geneva, Tahoma, sans-serif */
 .colorMe{
