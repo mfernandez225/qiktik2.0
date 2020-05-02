@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 // import Chart from "../../components/Chart";
 // import SymbolPage from "../../components/SymbolPage/stockPage";
-import { Card, CardBody, CardHeader, CardTitle } from "reactstrap";
+import { Card, CardBody } from "reactstrap";
 import API from "../../utils/API";
 import AppC from "../../AppC";
 import News from "../../News";
+import "./style.css";
 require("dotenv").config();
 
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
 
 const StockTile = ({ setFavoriteStocks, selectedStock }) => {
   const [error, setError] = useState(null);
@@ -55,34 +60,48 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
   } else {
     return (
       <div>
-        <Card className="border border-dark">
-          <CardHeader>
-            <CardTitle style={{ listStyleType: "none" }}> {names} </CardTitle>
-          </CardHeader>
+        <Card className="">
           <CardBody>
-            <ul>
-              <li style={{ listStyleType: "none" }}>
+            <ul className="text-left">
+              <h3
+                id="searchedCompanyName"
+                className="fontMe font-weight-bolder"
+                style={{ listStyleType: "none" }}
+              >
                 {" "}
-                Symbol: {tickersymbol}{" "}
+                {names}
+              </h3>
+              <h5
+                className="fontMe font-weight-bolder"
+                style={{ listStyleType: "none" }}
+              >
+                {symbol}{" "}
+              </h5>{" "}
+              <h3
+                id="stockPrice"
+                className="fontMe font-weight-bolder"
+                style={{ listStyleType: "none" }}
+              >
+                {formatter.format(items)}{" "}
+              </h3>
+              <li
+                className="fontMeSmall mt-2"
+                style={{ listStyleType: "none" }}
+              >
+                Market Cap: {formatter.format(marketcap)}{" "}
               </li>
-              <li style={{ listStyleType: "none" }}>
+              <li className="fontMeSmall" style={{ listStyleType: "none" }}>
                 {" "}
-                Current Price: ${items}{" "}
+                PE Ratio: {peratio}{" "}
               </li>
-              <li style={{ listStyleType: "none" }}>
-                {" "}
-                Market Cap: ${marketcap}{" "}
-              </li>
-              <li style={{ listStyleType: "none" }}> PE Ratio: {peratio} </li>
+              <button id="favoriteIcon" onClick={handleSave} className="btn">
+                <i class="fas fa-heart fa-2x"></i>
+              </button>
             </ul>
-            <button className="btn btn-dark" onClick={handleSave}>
-              Save
-            </button>
+            <News />
             <AppC />
           </CardBody>
         </Card>
-        <br></br>
-          <News />
       </div>
     );
   }

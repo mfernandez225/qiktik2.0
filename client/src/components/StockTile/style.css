@@ -1,0 +1,13 @@
+/* Style buttons */
+#favoriteIcon {
+  color: #26B3A4;
+  cursor: pointer;
+}
+
+#favoriteIcon:hover {
+  color: #1F8177;
+}
+
+#stockPrice {
+  color: #26B3A4;
+}

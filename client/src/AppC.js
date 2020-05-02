@@ -94,7 +94,7 @@ class AppC extends Component {
             <button
               type="button"
               className={
-                "btn btn-primary btn-highchart mt-2" +
+                "btn btn-primary btn-highchart" +
                 (this.state.selected === 4 ? "active" : "")
               }
               onClick={this.googleInHighchartSelected}

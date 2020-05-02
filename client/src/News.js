@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes, { symbol } from "prop-types";
 import Loader from "./Loader";
 // import StockSelect, {symbol} from "./components/Search";
-require("dotenv").config()
-
+require("dotenv").config();
 
 const newsDate = [];
 const newsHeadline = [];
@@ -22,25 +21,21 @@ class News extends React.Component {
   }
   getLatestNews() {
     fetch(
-      'https://cloud.iexapis.com/stable/stock/AAPL/news/2?token=' + process.env.REACT_APP_API_KEY_1
+      "https://cloud.iexapis.com/stable/stock/AAPL/news/2?token=" +
+        process.env.REACT_APP_API_KEY_1
 
-    // 'https://cloud.iexapis.com/stable/stock/' + symbol + '/news/2?token=' +  process.env.REACT_APP_API_KEY_1
+      // 'https://cloud.iexapis.com/stable/stock/' + symbol + '/news/2?token=' +  process.env.REACT_APP_API_KEY_1
       // 'https://sandbox.iexapis.com/stable/stock/AAPL/news/2?token=' + process.env.REACT_APP_API_KEY_2
 
       // "https://cloud.iexapis.com/stable/stock/" +
       //   symbol +
       // "/news/2?token=pk_ab67997aa39c4296b79de441635e9a49"
-
-      
-
     )
-      .then(res => res.json())
-      .then(result => {
+      .then((res) => res.json())
+      .then((result) => {
         for (let i = 0; i < 3; i++) {
           if (typeof result[parseInt(i)] !== "undefined") {
-            let date = Date(result[parseInt(i)].datetime)
-              .toString()
-              .split(" ");
+            let date = Date(result[parseInt(i)].datetime).toString().split(" ");
             newsDate[parseInt(i)] = `${date[1]} ${date[2]}`;
             newsHeadline[parseInt(i)] = result[parseInt(i)].headline;
             newsUrl[parseInt(i)] = result[parseInt(i)].url;
@@ -57,16 +52,14 @@ class News extends React.Component {
         setTimeout(() => {
           for (let i = 0; i < newsUrl.length; i++) {
             if (document.querySelector("#img" + i) !== null) {
-              document.querySelector(
-                "#img" + i,
-              ).style = newsImage[parseInt(i)];
+              document.querySelector("#img" + i).style = newsImage[parseInt(i)];
             }
           }
         }, 1000);
       })
       .then(() => {
         if (this._isMounted) {
-          this.setState({loading: false});
+          this.setState({ loading: false });
         }
       });
   }
@@ -79,8 +72,8 @@ class News extends React.Component {
   }
   render() {
     return (
-      <div className="news__articles">
-        <h5 style={{fontSize: '30px', color: 'black'}}>Latest News</h5>
+      <div className="mt-5 text-left">
+        <p className="fontMe">Latest Headlines</p>
         <br></br>
         {newsHeadline.map((val, indx) => {
           return (
@@ -88,19 +81,38 @@ class News extends React.Component {
               href={newsUrl[parseInt(indx)]}
               target="_blank"
               rel="noopener noreferrer"
-              key={indx}>
-              <div className="article">
+              key={indx}
+            >
+              <div className="row article">
                 <div className="article__image" id={"img" + indx} />
                 <div className="article__content">
                   <div className="article__top">
-                  {/* <h5>{newsDate[parseInt(indx)]}</h5> */}
-                  <div className="img_headline">
-                  <img style={{width: '60px', height: '60px'}} src ={newsImage[parseInt(indx)]} />
-                    <p style={{fontSize: '20px', color: 'black', paddingTop: '10px'}}>{val}
-                    </p>
-                  </div>                    
+                    {/* <h5>{newsDate[parseInt(indx)]}</h5> */}
+                    <div className="row">
+                      <img
+                        id="articleImage"
+                        className="col-sm-1"
+                        style={{
+                          width: "60px",
+                          height: "60px",
+                          border: "1px solid #26B3A4",
+                        }}
+                        src={newsImage[parseInt(indx)]}
+                      />
+                      <p
+                        className="col-sm fontMe font-weight-bolder pt-3"
+                        style={{ color: "#26B3A4" }}
+                      >
+                        {val}
+                      </p>
+                    </div>
                   </div>
-                  <h6 style={{fontSize: '14px', color: 'blue', paddingLeft: '120px', paddingRight: '40px', paddingTop: '10px'}}>{newsSummary[parseInt(indx)]}........</h6>
+                  <h6
+                    className="fontMeSmall mt-3"
+                    style={{ color: "black", fontSize: "10px" }}
+                  >
+                    {newsSummary[parseInt(indx)]}........
+                  </h6>
                 </div>
               </div>
               <hr></hr>
@@ -108,9 +120,8 @@ class News extends React.Component {
           );
         })}
         {newsHeadline.length === 0 && !this.state.loading && (
-          <div className="news__nothing">
-            
-            <h3>Sorry, we couldn't find any related news.</h3>
+          <div className="fontMeSmall news__nothing">
+            <h3>Sorry, no recent articles at this time.</h3>
           </div>
         )}
         {this.state.loading && <Loader />}
@@ -124,4 +135,3 @@ News.propTypes = {
 };
 
 export default News;
-
