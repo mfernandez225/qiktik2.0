@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Alert ,Jumbotron, Navbar,  NavbarBrand, Media} from "reactstrap";
 import API from "../../utils/API";
 import { useHistory } from "react-router-dom";
-import logo from "../../assets/imgs/qiktik2.png";
+import logo from "../../assets/imgs/qiktiklogo-1.png";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState("");
@@ -26,9 +26,8 @@ const Signup = () => {
     }
   };
   const imgStyle = {
-    maxHeight: 120,
-    maxWidth: 120,
-   
+    maxHeight: 140,
+    maxWidth: 165,
   }
 
   return (
