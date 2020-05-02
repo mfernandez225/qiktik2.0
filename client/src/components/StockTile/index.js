@@ -98,10 +98,10 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
                 <i class="fas fa-heart fa-2x"></i>
               </button>
             </ul>
-            <News />
             <AppC />
           </CardBody>
         </Card>
+        <News />
       </div>
     );
   }
