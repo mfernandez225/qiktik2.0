@@ -4,6 +4,9 @@ import React, { useState, useEffect } from "react";
 import { Card, CardBody, CardHeader, CardTitle } from "reactstrap";
 import API from "../../utils/API";
 import AppC from "../../AppC";
+import News from "../../News";
+require("dotenv").config();
+
 
 const StockTile = ({ setFavoriteStocks, selectedStock }) => {
   const [error, setError] = useState(null);
@@ -78,6 +81,8 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
             <AppC />
           </CardBody>
         </Card>
+        <br></br>
+          <News />
       </div>
     );
   }
