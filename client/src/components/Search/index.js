@@ -13,13 +13,13 @@ export default function StockSelect({ onChange }) {
   // typeahead is a reactstrap feature. Searching stock names or symbols
   return (
     <Typeahead
-      className="input-group mt-5 mb-5 border border-dark"
+      className="input-group p-3 mt-5 mb-5"
       id="stock-search"
       labelKey={(stock) => `${stock.symbol}: ${stock.name}`}
       onChange={handleChange}
       options={stocks}
       placeholder="Choose a stock..."
       ref={ref}
-    />
+    ></Typeahead>
   );
 }
