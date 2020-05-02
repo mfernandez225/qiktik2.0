@@ -72,7 +72,7 @@ class News extends React.Component {
   }
   render() {
     return (
-      <div className="mt-5 text-left">
+      <div className="container mt-5 text-left">
         <p className="fontMe">Latest Headlines</p>
         <br></br>
         {newsHeadline.map((val, indx) => {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 // import { hubStock as hubData } from './data/hubStock';
 import { googStock as googData } from "./data/googStock";
 // import ChartD3 from './ChartD3.jsx';
@@ -86,21 +86,23 @@ class AppC extends Component {
           <img src={logo} className="AppC-logo" alt="logo" />
           <h2>Charts and google maps with React.</h2>
         </div> */}
-        <div className="container">
-          <div className="nav justify-content-center">
+        <div className="row-col-sm text-left">
+          <button
+            id="displayStockGraph"
+            className={"btn" + (this.state.selected === 4 ? "active" : "")}
+            onClick={this.googleInHighchartSelected}
+            style={{ color: "#26B3A4", cursor: "pointer" }}
+          >
+            <i class="fas fa-chart-line fa-2x"></i>{" "}
+            <p className="fontMeSmall"></p>
+          </button>
+        </div>
+        <div className="row-col-sm">
+          <div className="nav">
             {/* <button type='button' className={"btn btn-d3 " + (this.state.selected === 1 ? 'active' : '')} onClick={this.hubSpotInD3Selected}>HubSpot + D3</button>
             <button type='button' className={"btn btn-d3 " + (this.state.selected === 2 ? 'active' : '')} onClick={this.googleInD3Selected}>Google + D3</button>
             <button type='button' className={"btn btn-highchart " + (this.state.selected === 3 ? 'active' : '')} onClick={this.hubSpotInHighchartSelected}>HubSpot + Highchart</button> */}
-            <button
-              type="button"
-              className={
-                "btn btn-primary btn-highchart" +
-                (this.state.selected === 4 ? "active" : "")
-              }
-              onClick={this.googleInHighchartSelected}
-            >
-              Display Stock Chart
-            </button>
+
             {/* <button type='button' className={"btn btn-gmaps " + (this.state.selected === 5 ? 'active' : '')} onClick={this.gmapsSelected}>Places on GMaps</button> */}
           </div>
 
