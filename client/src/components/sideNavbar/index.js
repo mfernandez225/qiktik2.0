@@ -17,10 +17,10 @@ const SideNavbar = ({ favoriteStocks, setFavoriteStocks }) => {
 
   return (
     
-    <div id="navie" className="min-vh-100 d-flex flex-column  justify-content-between bg-secondary p-3">
+    <div id="navie" className="min-vh-100 d-flex flex-column  justify-content-between  p-3">
   
   {/* LOGO IMAGE - css: tabs: alignment, logo: sizing, fontMe: big font, fontMeSmall: small font*/}
-   <div className="text-left  tabs">
+   <div className="text-left text-white tabs" >
    <Media left className="mb-2" >
         <Media object src={logo} alt="qiktik" id="logo"  />
       </Media>
@@ -30,32 +30,34 @@ const SideNavbar = ({ favoriteStocks, setFavoriteStocks }) => {
         <hr />
         <h5 className="text-light fontMe">Saved Stocks / Favorites</h5>
         {/* Displaying users selected favorite stocks */}
-        <Nav vertical>
+        <Nav vertical >
+          <div id="overflow">
           {favoriteStocks.map((favoriteStock) => (
-            <div>
+            <div >
               <p key={favoriteStock._id}>{favoriteStock.symbol}</p>
               <button  onClick={() => handleDelete(favoriteStock)}>
                 Delete
               </button>
             </div>
           ))}
+          </div>
         </Nav>
         <hr />
         <h5 className="text-light  fontMe">News / Brokerage Links</h5>
         <Nav vertical>
-          <NavLink className="text-dark fontMeSmall  hoverMe" href="https://robinhood.com/">
+          <NavLink className="text-light fontMeSmall  hoverMe" href="https://robinhood.com/">
             Robinhood
           </NavLink>
-          <NavLink className="text-dark fontMeSmall hoverMe" href="https://www.cnn.com/business">
+          <NavLink className="text-light fontMeSmall hoverMe" href="https://www.cnn.com/business">
             CNN Business
           </NavLink>
-          <NavLink className="text-dark fontMeSmall hoverMe" href="https://finance.yahoo.com/">
+          <NavLink className="text-light fontMeSmall hoverMe" href="https://finance.yahoo.com/">
             Yahoo Finance
           </NavLink>
-          <NavLink className="text-dark fontMeSmall hoverMe" href="https://www.wsj.com/">
+          <NavLink className="text-light fontMeSmall hoverMe" href="https://www.wsj.com/">
             WSJ
           </NavLink>
-          <NavLink className="text-dark fontMeSmall hoverMe" href="https://www.forbes.com/">
+          <NavLink className="text-light fontMeSmall hoverMe" href="https://www.forbes.com/">
             Forbes
           </NavLink>
         </Nav>

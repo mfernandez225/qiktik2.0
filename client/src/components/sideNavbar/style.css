@@ -1,5 +1,12 @@
 #navie{
-    /* background-color: black; */
+    background-color: #292929 ;
+    opacity: .97;
+}
+#overflow{
+    height: 200px;
+    width: auto;
+    overflow-y: scroll;
+
 }
 
 .hoverMe:hover{
