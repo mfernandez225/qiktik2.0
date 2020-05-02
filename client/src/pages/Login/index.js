@@ -3,7 +3,7 @@ import { Alert ,Jumbotron, Navbar,  NavbarBrand, Media} from "reactstrap";
 import API from "../../utils/API";
 import { useHistory, Link } from "react-router-dom";
 import "./style.css";
-import logo from "../../assets/imgs/qiktik2.png";
+import logo from "../../assets/imgs/qiktiklogo-1.png";
 
 
 const Login = () => {
@@ -27,9 +27,8 @@ const Login = () => {
     }
   };
   const imgStyle = {
-    maxHeight: 120,
-    maxWidth: 120,
-   
+    maxHeight: 140,
+    maxWidth: 165,
   }
 
   return (
@@ -41,7 +40,7 @@ const Login = () => {
   <Navbar  fixed="top" className="p-0 transparent" >
     <NavbarBrand  className="mr-auto">  
     
-     <Media left href="#" >
+     <Media left  >
         <Media object src={logo} alt="qiktik" style={imgStyle} className="p-1 ml-1"/>
       </Media>
   

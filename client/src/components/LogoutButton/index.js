@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { Button } from "reactstrap";
 import useAuth from "../../utils/use-auth";
+import "./style.css";
 
 const Logout = () => {
   const history = useHistory();
@@ -17,8 +18,8 @@ const Logout = () => {
   return (
     <Button
       id="logoutButton"
-      className="btn btn-lrg btn-dark"
-      color="white"
+      className="btn btn-lrg btn-dark fontMeSmall"
+     
       onClick={handleLogout}
     >
       Logout

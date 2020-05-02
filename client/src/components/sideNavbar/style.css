@@ -1,0 +1,39 @@
+#navie{
+    /* background-color: black; */
+}
+
+.hoverMe:hover{
+    background-color: #26b3a4 ;
+        }
+.tabs{
+    margin-left: 5px;
+}
+
+#logo{
+      /* margin-left:15px; */
+    max-width: 200px;
+    max-height: 205px;
+    
+}
+
+
+   /* ipad */
+   @media only screen and (min-device-width : 753px) and (max-device-width : 1024px) {
+  .tabs{
+      margin-left: 0px;
+  }
+  #logo{
+    margin-left:0px;
+    max-width: 150px;
+    max-height: 100px;
+   }
+    }
+    
+    /* Smartphones (portrait and landscape) ----------- */
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+        #logo{
+            margin-left:0px;
+            max-width: 250px;
+            max-height: 200px;
+           }
+        }
