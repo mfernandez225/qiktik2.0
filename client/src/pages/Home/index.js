@@ -33,7 +33,7 @@ const Home = () => {
             setFavoriteStocks={setFavoriteStocks}
           />
         </Col>
-        <Col className="text-center">
+        <Col className="text-center" md="7">
           <Search onChange={(stock) => setSelectedStock(stock)} />
           {selectedStock && (
             <StockTile
