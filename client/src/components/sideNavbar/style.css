@@ -1,6 +1,9 @@
-#navie {
-    background-color: #292929;
-    opacity: .97;
+
+#navie{
+    background-color: #292929 ;
+    opacity: .92;
+  
+
 }
 
 #overflow {
@@ -31,10 +34,18 @@
 }
 
 
-/* ipad */
-@media only screen and (min-device-width : 753px) and (max-device-width : 1024px) {
-    .tabs {
-        margin-left: 0px;
+   /* ipad */
+
+   @media only screen and (min-device-width : 768px) and (max-device-width : 1023px) {
+  .tabs{
+      margin-left: 0px;
+  }
+  #logo{
+    margin-left:0px;
+    max-width: 125px;
+    max-height: 100px;
+   }
+
     }
 
     #logo {
