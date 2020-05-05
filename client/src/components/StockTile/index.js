@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 // import SymbolPage from "../../components/SymbolPage/stockPage";
 import { Card, CardBody } from "reactstrap";
 import API from "../../utils/API";
-import AppC from "../../AppC";
+import StockChart from "../../AppC";
 import News from "../../News";
 import "./style.css";
 require("dotenv").config();
@@ -17,7 +17,7 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [names, setNames] = useState([]);
-  const [tickersymbol, settickerSymbol] = useState([]);
+  // const [tickersymbol, settickerSymbol] = useState([]);
   const [items, setItems] = useState([]);
   const [marketcap, setMarketCap] = useState([]);
   const [peratio, setPERatio] = useState([]);
@@ -36,7 +36,7 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
           setIsLoaded(true);
 
           setNames(result["companyName"]);
-          settickerSymbol(result["symbol"]);
+          // settickerSymbol(result["symbol"]);
           setItems(result["latestPrice"]);
           setMarketCap(result["marketCap"]);
           setPERatio(result["peRatio"]);
@@ -60,45 +60,23 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
   } else {
     return (
       <div>
-        <Card className="">
+        <Card className="text-left">
           <CardBody>
-            <ul className="text-left">
-              <h3
-                id="searchedCompanyName"
-                className="fontMe font-weight-bolder"
-                style={{ listStyleType: "none" }}
-              >
-                {" "}
-                {names}
-              </h3>
-              <h5
-                className="fontMe font-weight-bolder"
-                style={{ listStyleType: "none" }}
-              >
-                {symbol}{" "}
-              </h5>{" "}
-              <h3
-                id="stockPrice"
-                className="fontMe font-weight-bolder"
-                style={{ listStyleType: "none" }}
-              >
-                {formatter.format(items)}{" "}
-              </h3>
-              <li
-                className="fontMeSmall mt-2"
-                style={{ listStyleType: "none" }}
-              >
-                Market Cap: {formatter.format(marketcap)}{" "}
-              </li>
-              <li className="fontMeSmall" style={{ listStyleType: "none" }}>
-                {" "}
-                PE Ratio: {peratio}{" "}
-              </li>
-              <button id="favoriteIcon" onClick={handleSave} className="btn">
-                <i class="fas fa-heart fa-2x"></i>
-              </button>
-            </ul>
-            <AppC />
+            <h3 id="searchedCompanyName" className="fontMe font-weight-bolder">
+              {names}
+            </h3>
+            <h5 className="fontMe font-weight-bolder">{symbol}</h5>
+            <h3 id="stockPrice" className="fontMe font-weight-bolder">
+              {formatter.format(items)}
+            </h3>
+            <div className="fontMeSmall mt-2">
+              Market Cap: {formatter.format(marketcap)}
+            </div>
+            <div className="fontMeSmall">PE Ratio: {peratio}</div>
+            <button id="favoriteIcon" onClick={handleSave} className="btn">
+              <i className="fas fa-heart fa-2x"></i>
+            </button>
+            <StockChart symbol={symbol} />
           </CardBody>
         </Card>
         <News />

@@ -33,6 +33,7 @@ const Home = () => {
           <SideNavbar
             favoriteStocks={favoriteStocks}
             setFavoriteStocks={setFavoriteStocks}
+            setSelectedStock={setSelectedStock}
           />
         </Col>
         
@@ -53,7 +54,6 @@ const Home = () => {
               setFavoriteStocks={setFavoriteStocks}
             />
           )}
-          <sAndPoor />
         </Col>
       </Row>
     </Container>
