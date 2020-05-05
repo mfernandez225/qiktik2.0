@@ -17,7 +17,7 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [names, setNames] = useState([]);
-  const [tickersymbol, settickerSymbol] = useState([]);
+  // const [tickersymbol, settickerSymbol] = useState([]);
   const [items, setItems] = useState([]);
   const [marketcap, setMarketCap] = useState([]);
   const [peratio, setPERatio] = useState([]);
@@ -36,7 +36,7 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
           setIsLoaded(true);
 
           setNames(result["companyName"]);
-          settickerSymbol(result["symbol"]);
+          // settickerSymbol(result["symbol"]);
           setItems(result["latestPrice"]);
           setMarketCap(result["marketCap"]);
           setPERatio(result["peRatio"]);
@@ -74,7 +74,7 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
             </div>
             <div className="fontMeSmall">PE Ratio: {peratio}</div>
             <button id="favoriteIcon" onClick={handleSave} className="btn">
-              <i class="fas fa-heart fa-2x"></i>
+              <i className="fas fa-heart fa-2x"></i>
             </button>
             <StockChart symbol={symbol} />
           </CardBody>
