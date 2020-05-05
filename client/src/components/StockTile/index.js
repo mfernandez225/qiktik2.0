@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-// import Chart from "../../components/Chart";
-// import SymbolPage from "../../components/SymbolPage/stockPage";
 import { Card, CardBody } from "reactstrap";
 import API from "../../utils/API";
 import StockChart from "../../AppC";
-import News from "../../News";
+import News from "../News/News";
 import "./style.css";
 require("dotenv").config();
 

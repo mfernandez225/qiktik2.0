@@ -54,8 +54,9 @@ class AppC extends Component {
   googleInHighchartSelected() {
     this.setState({
       selected: 4,
+      // data: _.cloneDeep(googData),
       data: _.cloneDeep(googData),
-      title: "Google",
+      title: "Google T",
       type: "highchart",
     });
   }
@@ -74,6 +75,7 @@ class AppC extends Component {
     //   content = <ChartD3 data={this.state.data} title={this.state.title} />;
     if (this.state.type === "highchart")
       content = (
+        // <ChartHighstock data={this.state.data} title={this.state.title} />
         <ChartHighstock data={this.state.data} title={this.state.title} />
       );
     // else if (this.state.type === 'gmaps') {
