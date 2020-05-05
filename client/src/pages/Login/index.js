@@ -3,7 +3,7 @@ import { Alert ,Jumbotron, Navbar,  NavbarBrand, Media} from "reactstrap";
 import API from "../../utils/API";
 import { useHistory, Link } from "react-router-dom";
 import "./style.css";
-import logo from "../../assets/imgs/qiktiklogo-1.png";
+import logo from "../../assets/imgs/teal.png";
 
 
 const Login = () => {
@@ -26,10 +26,7 @@ const Login = () => {
       setLoginError("Invalid email or password");
     }
   };
-  const imgStyle = {
-    maxHeight: 140,
-    maxWidth: 165,
-  }
+ 
 
   return (
    
@@ -37,11 +34,11 @@ const Login = () => {
 
    //loginBody is f  
   <div >
-  <Navbar  fixed="top" className="p-0 transparent" >
-    <NavbarBrand  className="mr-auto">  
+  <Navbar  fixed="top" className="p-0 transparent " >
+    <NavbarBrand  >  
     
-     <Media left  >
-        <Media object src={logo} alt="qiktik" style={imgStyle} className="p-1 ml-1"/>
+     <Media   >
+        <Media id="logo" object src={logo} alt="qiktik"  className="p-1 m-3"/>
       </Media>
   
       </NavbarBrand>
@@ -51,10 +48,10 @@ const Login = () => {
 
 
    
-    <div id="loginBody" className="">
+    <div id="loginBody" >
 
       
-       <Jumbotron id="jumbo"  >
+       <Jumbotron id="jumbo" className="mt-3" >
        
       <h1   className="mt-1 fontMe text-white colorMe"  >Login</h1>
       {loginError && <Alert color="danger">{loginError}</Alert>}

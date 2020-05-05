@@ -18,7 +18,7 @@ const Logout = () => {
   return (
     <Button
       id="logoutButton"
-      className="btn btn-lrg btn-dark fontMeSmall"
+      className="btn btn-lrg btn-dark fontMeSmall m-3"
      
       onClick={handleLogout}
     >

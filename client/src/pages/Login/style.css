@@ -2,7 +2,7 @@
 
 #loginBody {
 
-    background-image: url('../../assets//imgs/backgroundImage.png');
+    background-image: url('../../assets//imgs/darkImg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -19,23 +19,26 @@
 }
 
  #jumbo{
-     width:75%;
+     width:50%;
     background:#292929;
     opacity: .97;
     color: #000000;
-    min-height: 50vh;
-    max-width: 140vh;
-
-    
-}
-
-@media only screen and (max-width: 400px) {
-    #jumbo{
-        width: 95%;
-    
-    
     }
-      }
+    /* min-height: 50vh;
+    max-width: 140vh; */
+
+    
+
+/* @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    #jumbo{
+        min-height: 200px;
+        max-width:300px;
+   
+       
+   }
+    } */
+
+
 #sup2{
     border-radius: 25px;
 }
@@ -82,3 +85,9 @@ input{
 }
 
 
+#logo{
+    /* margin-left:30%; */
+  max-width: 200px;
+  max-height: 200px;
+  
+}

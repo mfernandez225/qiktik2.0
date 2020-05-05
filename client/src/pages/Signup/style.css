@@ -1,7 +1,7 @@
 
 #loginBody {
 
-    background-image: url('../../assets//imgs/backgroundImage.png');
+    background-image: url('../../assets//imgs/darkImg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -22,25 +22,25 @@
     background-color: #1f8177;
 }
  #jumbo{
-     width: 75%;
+     width: 50%;
     background:#292929;
     opacity: .97;
     color: #000000;
-    min-height: 50vh;
-    max-width: 140vh;
+    /* min-height: 50vh;
+    max-width: 140vh; */
 
 }
 .transparent {
     background-color:transparent;
 }
-@media only screen and (max-width: 400px) {
+/* @media only screen and (max-width: 400px) {
     #jumbo{
         width: 95%;
-        margin-top: 35px;
+        margin-top: 60px;
     
     
     }
-      }
+      } */
 
 
 /* 
@@ -71,3 +71,9 @@ input{
 .colorMe{
     color: #f9f9f9;
  }
+ #logo{
+    /* margin-left:15px; */
+  max-width: 100px;
+  max-height: 100px;
+  
+}

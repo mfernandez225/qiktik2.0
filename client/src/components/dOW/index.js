@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Card, Button, CardTitle, CardText } from 'reactstrap';
+import "./style.css";
 require("dotenv").config();
 
 const DOW = () => {
@@ -32,11 +34,19 @@ const DOW = () => {
   }, []);
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div className="fontMe">Error: {error.message}</div>;
   } else if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <div className="fontMe">Loading...</div>;
   } else {
-    return <li> DOW= {items.slice(0, -2)}</li>;
+    return (
+      <Card body id='cBody' className="text-center p-5 m-2">
+      <CardTitle id="lrg" className="fontMeSmall">{items.slice(0, -2)}</CardTitle>
+      <CardText id="med" className="fontMe">SDOW</CardText>
+  
+    </Card>
+    )
+    
+  
   }
 };
 export default DOW;

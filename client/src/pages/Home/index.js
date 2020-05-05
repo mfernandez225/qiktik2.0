@@ -5,6 +5,8 @@ import SideNavbar from "../../components/sideNavbar";
 import { Container, Row, Col } from "reactstrap";
 import useAuth from "../../utils/use-auth";
 import API from "../../utils/API";
+import SAndPoor from "../../components/sAndPoor/index";
+import DOW from "../../components/dOW/index";
 
 // loginRequired coming from useAuth in utils folder, ensuring that the user can't access qiktik without being logged in.
 
@@ -33,7 +35,16 @@ const Home = () => {
             setFavoriteStocks={setFavoriteStocks}
           />
         </Col>
-        <Col className="text-center" md="7">
+        
+        <Col className="text-center" md="9" sm="12">
+          <Row  className="justify-content-center">
+          
+        <SAndPoor />
+      
+    
+        <DOW  />
+    
+        </Row>
           <Search onChange={(stock) => setSelectedStock(stock)} />
           {selectedStock && (
             <StockTile

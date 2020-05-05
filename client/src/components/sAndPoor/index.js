@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-require("dotenv").config();
+import { Card, Button, CardTitle, CardText } from 'reactstrap';
+import "./style.css";
 
+require("dotenv").config();
 const SAndPoor = () => {
   // Note: the empty deps array [] means
   // this useEffect will run once
@@ -32,11 +34,22 @@ const SAndPoor = () => {
   }, []);
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div className="fontMe">Error: {error.message}</div>;
   } else if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <div className="fontMe">Loading...</div>;
   } else {
-    return <li> S&P= {items.slice(0, -2)}</li>;
+    return (
+    <Card body id='cBody' className="text-center p-5 m-2">
+    <CardTitle id="lrg" className="fontMeSmall">{items.slice(0, -2)}</CardTitle>
+    <CardText id="med" className="fontMe">SandP</CardText>
+
+  </Card>
+    
+  
+    
+    )
+    
+
   }
 };
 export default SAndPoor;
