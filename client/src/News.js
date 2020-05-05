@@ -1,8 +1,8 @@
 import React from "react";
-import PropTypes, { symbol } from "prop-types";
+import PropTypes from "prop-types";
 import Loader from "./Loader";
 // import StockSelect, {symbol} from "./components/Search";
-require("dotenv").config();
+// require("dotenv").config();
 
 const newsDate = [];
 const newsHeadline = [];
