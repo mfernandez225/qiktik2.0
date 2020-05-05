@@ -1,8 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes, { symbol } from "prop-types";
 import Loader from "./Loader";
 // import StockSelect, {symbol} from "./components/Search";
-// require("dotenv").config();
+require("dotenv").config();
 
 const newsDate = [];
 const newsHeadline = [];
@@ -72,62 +72,55 @@ class News extends React.Component {
   }
   render() {
     return (
-      <div className="mt-5 text-left">
+      <div className="container mt-5 text-left">
         <p className="fontMe">Latest Headlines</p>
         <br></br>
         {newsHeadline.map((val, indx) => {
           return (
-            <div key={indx}>
-              <div className="row">
-                <div className="col">
-                  <a
-                    href={newsUrl[parseInt(indx)]}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <h5
-                      className="fontMe font-weight-bolder mt-2"
-                      style={{ color: "#26B3A4" }}
-                    >
-                      {val}
-                    </h5>
-                  </a>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-2">
-                  <a
-                    href={newsUrl[parseInt(indx)]}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <div
-                      id="articleImage"
-                      style={{
-                        width: "120px",
-                        height: "120px",
-                        border: "1px solid #26B3A4",
-                        backgroundImage: `url(${newsImage[parseInt(indx)]})`,
-                        backgroundSize: "cover",
-                      }}
-                    />
-                  </a>
-                </div>
-                <div className="col">
+            <a
+              href={newsUrl[parseInt(indx)]}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={indx}
+            >
+              <div className="row article">
+                <div className="article__image" id={"img" + indx} />
+                <div className="article__content">
+                  <div className="article__top">
+                    {/* <h5>{newsDate[parseInt(indx)]}</h5> */}
+                    <div className="row">
+                      <img
+                        id="articleImage"
+                        className="col-sm-1"
+                        style={{
+                          width: "60px",
+                          height: "60px",
+                          border: "1px solid #26B3A4",
+                        }}
+                        src={newsImage[parseInt(indx)]}
+                      />
+                      <p
+                        className="col-sm fontMe font-weight-bolder pt-3"
+                        style={{ color: "#26B3A4" }}
+                      >
+                        {val}
+                      </p>
+                    </div>
+                  </div>
                   <h6
-                    className="fontMe mt-3"
+                    className="fontMeSmall mt-3"
                     style={{ color: "black", fontSize: "10px" }}
                   >
-                    {newsSummary[parseInt(indx)]}...
+                    {newsSummary[parseInt(indx)]}........
                   </h6>
                 </div>
-                <hr />
               </div>
-            </div>
+              <hr></hr>
+            </a>
           );
         })}
         {newsHeadline.length === 0 && !this.state.loading && (
-          <div className="fontMe news__nothing">
+          <div className="fontMeSmall news__nothing">
             <h3>Sorry, no recent articles at this time.</h3>
           </div>
         )}
