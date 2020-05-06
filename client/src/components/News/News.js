@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes, { symbol } from "prop-types";
+import PropTypes from "prop-types";
 import Loader from "./Loader";
 // import StockSelect, {symbol} from "./components/Search";
 require("dotenv").config();
@@ -91,6 +91,7 @@ class News extends React.Component {
                     <div className="row">
                       <img
                         id="articleImage"
+                        alt="Article"
                         className="col-sm-1"
                         style={{
                           width: "60px",
