@@ -27,7 +27,7 @@ const SideNavbar = ({
       {/* LOGO IMAGE - css: tabs: alignment, logo: sizing, fontMe: big font, fontMeSmall: small font*/}
       <div className="text-left text-white tabs">
         <Media left className="mb-2">
-          <Media object src={logo} alt="qiktik" id="logo" />
+          <Media object src={logo} alt="qiktik" id="homeLogo" />
         </Media>
         <hr />
         <h5 className="text-light fontMe">Saved Stocks / Favorites</h5>

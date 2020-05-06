@@ -27,16 +27,43 @@
     /* min-height: 50vh;
     max-width: 140vh; */
 
+    #logo{
+        margin: 10px;
+        /* margin-left:30%; */
+      max-width: 175px;
+      max-height: 175px;
+      
+    }
     
+/* ipad */
 
-/* @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (min-device-width :642px) and (max-device-width : 768px) {
     #jumbo{
-        min-height: 200px;
-        max-width:300px;
+      margin-left: 200px;
    
        
    }
-    } */
+   #logo{
+       
+    max-width: 150px;
+    max-height: 150px;
+   }
+    }
+/* smart phone */
+    @media only screen and (min-device-width :320px) and (max-device-width : 642px) {
+        #jumbo{
+         width: 95%;
+       
+           
+       }
+       #logo{
+        margin: 5px;
+        max-width: 100px;
+        max-height: 100px;
+       }
+      
+        }
+    
 
 
 #sup2{
@@ -85,9 +112,3 @@ input{
 }
 
 
-#logo{
-    /* margin-left:30%; */
-  max-width: 200px;
-  max-height: 200px;
-  
-}
