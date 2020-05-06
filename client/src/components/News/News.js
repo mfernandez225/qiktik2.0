@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes, { symbol } from "prop-types";
+import PropTypes from "prop-types";
 import Loader from "./Loader";
 import "./style.css";
 import { Container } from "reactstrap";
@@ -95,7 +95,7 @@ class News extends React.Component {
                       <div className="col-3 text-right p-0">
                       <img
                         id="articleImage"
-                        
+
                         style={{
                           width: "180px",
                           height: "120px",
