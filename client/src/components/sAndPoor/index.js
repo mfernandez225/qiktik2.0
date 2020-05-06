@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button, CardTitle, CardText } from 'reactstrap';
+import { Card, CardTitle, CardText } from "reactstrap";
 import "./style.css";
 
 require("dotenv").config();
@@ -39,17 +39,15 @@ const SAndPoor = () => {
     return <div className="fontMe">Loading...</div>;
   } else {
     return (
-    <Card body id='cBody' className="text-center p-5 m-2">
-    <CardTitle id="lrg" className="fontMeSmall">{items.slice(0, -2)}</CardTitle>
-    <CardText id="med" className="fontMe">SandP</CardText>
-
-  </Card>
-    
-  
-    
-    )
-    
-
+      <Card body id="cBody" className="text-center p-5 m-2">
+        <CardTitle id="lrg" className="fontMeSmall">
+          {items.slice(0, -2)}
+        </CardTitle>
+        <CardText id="med" className="fontMe">
+          SandP
+        </CardText>
+      </Card>
+    );
   }
 };
 export default SAndPoor;

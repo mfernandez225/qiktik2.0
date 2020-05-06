@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { Nav, NavLink, Media } from "reactstrap";
 
@@ -14,7 +12,6 @@ const SideNavbar = ({
   setFavoriteStocks,
   setSelectedStock,
 }) => {
-
   const handleDelete = async (favoriteStock) => {
     const response = await API.deleteFavorite(favoriteStock);
     setFavoriteStocks(response.data);
@@ -30,27 +27,36 @@ const SideNavbar = ({
           <Media object src={logo} alt="qiktik" id="homeLogo" />
         </Media>
         <hr />
-        <h5 className="text-light fontMe">Saved Stocks / Favorites</h5>
+        <h5 className="text-light fontMe">Tracked Stocks</h5>
         {/* Displaying users selected favorite stocks */}
         <Nav vertical>
           <div id="overflow">
             {favoriteStocks.map((favoriteStock) => (
               <div key={favoriteStock._id}>
-                <p
-                  id="savedFavoriteStock"
-                  className="font-weight-bolder"
-                  onClick={() => setSelectedStock(favoriteStock)}
-                >
-                  {favoriteStock.symbol}
-                </p>
-                <button onClick={() => handleDelete(favoriteStock)}>
-                  Delete
-                </button>
+                <div className="row">
+                  <div className="col">
+                    <p
+                      id="savedFavoriteStock"
+                      className="fontMeSmall"
+                      onClick={() => setSelectedStock(favoriteStock)}
+                    >
+                      {favoriteStock.symbol}
+                    </p>
+                  </div>
+                  <div className="col">
+                    <button
+                      id="deleteFavoriteStock"
+                      onClick={() => handleDelete(favoriteStock)}
+                    >
+                      <i className="far fa-trash-alt fa-1x"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </Nav>
-       
+
         <hr />
         <h5 className="text-light  fontMe">News / Brokerage Links</h5>
         <Nav vertical>
@@ -86,14 +92,11 @@ const SideNavbar = ({
           </NavLink>
         </Nav>
       </div>
-      
+
       <Nav vertical>
         <Logout />
-
       </Nav>
-     
     </div>
-    
   );
 };
 

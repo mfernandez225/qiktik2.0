@@ -1,8 +1,7 @@
-
-#navie{
-    background-color: #292929 ;
+#navie {
+    background-color: #292929;
     opacity: .92;
-  
+
 
 }
 
@@ -22,42 +21,57 @@
     background-color: #26b3a4;
 }
 
+/* Style buttons */
+#deleteFavoriteStock {
+    color: white;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+#deleteFavoriteStock:hover {
+    color: white;
+}
+
 .tabs {
     margin-left: 5px;
 }
 
 
 
-#homeLogo { /* margin-left: 0px; */
+#homeLogo {
+    /* margin-left: 0px; */
     max-width: 125px;
     max-height: 100px;
 }
 
- 
+
 
 
 /* ipad */
 
 @media only screen and (min-device-width :642px) and (max-device-width : 768px) {
-    .tabs{
+    .tabs {
         margin-left: 0px;
     }
-   #homeLogo{
-       
-    max-width: 100px;
-    max-height: 100px;
-   }
-    }
-/* smart phone */
-    @media only screen and (min-device-width :320px) and (max-device-width : 642px) {
-        .tabs{
-            margin-left: 0px;
-        }
-       #logo{
-        
+
+    #homeLogo {
+
         max-width: 100px;
         max-height: 100px;
-       }
-      
-        }
+    }
+}
 
+/* smart phone */
+@media only screen and (min-device-width :320px) and (max-device-width : 642px) {
+    .tabs {
+        margin-left: 0px;
+    }
+
+    #logo {
+
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+}
