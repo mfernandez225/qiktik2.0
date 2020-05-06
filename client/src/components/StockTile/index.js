@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Card, CardBody } from "reactstrap";
+import { Card, CardBody, Row } from "reactstrap";
 import API from "../../utils/API";
 import StockChart from "../../AppC";
-import News from "../News/News";
+
 import "./style.css";
 require("dotenv").config();
 
@@ -58,26 +58,37 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
   } else {
     return (
       <div>
-        <Card className="text-left">
-          <CardBody>
-            <h3 id="searchedCompanyName" className="fontMe font-weight-bolder">
+        <Card id="background">
+          <CardBody className="text-center">
+            
+            <h3 id="searchedCompanyName"  className="fontMe font-weight-bolder">
               {names}
             </h3>
-            <h5 className="fontMe font-weight-bolder">{symbol}</h5>
-            <h3 id="stockPrice" className="fontMe font-weight-bolder">
-              {formatter.format(items)}
-            </h3>
+            <h5 className="fontMe font-weight-bolder" id="companySymbol">{symbol}</h5>
+
+            <div id="container"> 
+           
             <div className="fontMeSmall mt-2">
               Market Cap: {formatter.format(marketcap)}
             </div>
             <div className="fontMeSmall">PE Ratio: {peratio}</div>
-            <button id="favoriteIcon" onClick={handleSave} className="btn">
+            <h3 id="stockPrice" className="fontMe  font-weight-bolder">
+              {formatter.format(items)}
+            </h3>
+            
+            <Row id="icons">
+            <button id="favoriteIcon" onClick={handleSave} className="btn ">
               <i className="fas fa-heart fa-2x"></i>
             </button>
-            <StockChart symbol={symbol} />
+            <StockChart  symbol={symbol} />
+            </Row>
+            </div>
           </CardBody>
         </Card>
-        <News />
+
+
+
+      
       </div>
     );
   }
