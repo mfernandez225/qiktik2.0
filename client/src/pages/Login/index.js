@@ -38,7 +38,7 @@ const Login = () => {
     <NavbarBrand  >  
     
      <Media   >
-        <Media id="logo" object src={logo} alt="qiktik"  className="p-1 m-3"/>
+        <Media id="logo" object src={logo} alt="qiktik"  className="p-1 "/>
       </Media>
   
       </NavbarBrand>

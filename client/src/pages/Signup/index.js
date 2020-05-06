@@ -33,7 +33,7 @@ const Signup = () => {
     <NavbarBrand  className="mr-auto">  
     
      <Media left className="" >
-        <Media id="logo" object src={logo}  alt="qiktik"  className="p-1 m-3"/>
+        <Media id="logo" object src={logo}  alt="qiktik"  className="p-1"/>
       </Media>
   
       </NavbarBrand>

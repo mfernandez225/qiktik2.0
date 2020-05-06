@@ -33,29 +33,7 @@
 .transparent {
     background-color:transparent;
 }
-/* @media only screen and (max-width: 400px) {
-    #jumbo{
-        width: 95%;
-        margin-top: 60px;
-    
-    
-    }
-      } */
 
-
-/* 
-@font-face {
-    font-family: LEMONMILK;
-    src: url(../../assets/font/LEMONMILK-Regular.otf);
- 
-  }
-
-
-
-@font-face{
-    font-family: LEMONMILKLITE;
-    src: url(../../assets/font/LEMONMILK-Light.otf);
-} */
 .fontMe{
     
     font-family: "LEMONMILK"
@@ -72,8 +50,9 @@ input{
     color: #f9f9f9;
  }
  #logo{
-    /* margin-left:15px; */
+    margin: 10px;
   max-width: 100px;
   max-height: 100px;
   
 }
+
