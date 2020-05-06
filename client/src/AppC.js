@@ -88,7 +88,7 @@ class AppC extends Component {
           <img src={logo} className="AppC-logo" alt="logo" />
           <h2>Charts and google maps with React.</h2>
         </div> */}
-        <div className="row-col-sm text-left">
+        <div className="row-col-sm ">
           <button
             id="displayStockGraph"
             className={"btn" + (this.state.selected === 4 ? "active" : "")}

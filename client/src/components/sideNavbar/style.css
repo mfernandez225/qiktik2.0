@@ -1,6 +1,9 @@
 #navie {
     background-color: #292929;
     opacity: .92;
+    height: 100vh;
+    position: sticky;
+  
 
 
 }

@@ -7,7 +7,8 @@ import useAuth from "../../utils/use-auth";
 import API from "../../utils/API";
 import SAndPoor from "../../components/sAndPoor/index";
 import DOW from "../../components/dOW/index";
-
+import News from "../../components/News/News";
+import "./style.css"
 // loginRequired coming from useAuth in utils folder, ensuring that the user can't access qiktik without being logged in.
 
 const Home = () => {
@@ -26,7 +27,7 @@ const Home = () => {
   }, []);
 
   return (
-    <Container fluid={true} className="min-vh-100">
+    <Container fluid={true} i >
       <Row md="3">
         {/* User is selecting and displaying favorite stocks from stock tile to side navbar */}
         <Col xs="12" s="5" md="3" lg="3" style={{ marginLeft: "-15px" }}>
@@ -37,15 +38,15 @@ const Home = () => {
           />
         </Col>
         
-        <Col className="text-center" md="9" sm="12">
+        <Col  className="text-center" md="9" sm="12">
+
+         
           <Row  className="justify-content-center">
-          
         <SAndPoor />
-      
-    
         <DOW  />
-    
         </Row>
+
+
           <Search onChange={(stock) => setSelectedStock(stock)} />
           {selectedStock && (
             <StockTile
@@ -54,8 +55,13 @@ const Home = () => {
               setFavoriteStocks={setFavoriteStocks}
             />
           )}
+          <News />
+
+
         </Col>
+
       </Row>
+      
     </Container>
   );
 };

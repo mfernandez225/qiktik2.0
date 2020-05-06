@@ -2,12 +2,28 @@
 #favoriteIcon {
   color: #26B3A4;
   cursor: pointer;
+  margin-bottom: 13px;
 }
-
+#companySymbol{
+  color: #26B3A4;
+}
 #favoriteIcon:hover {
   color: #1F8177;
 }
 
 #stockPrice {
+
   color: #26B3A4;
+}
+#background{
+  background-color: #292929;
+  opacity: .92;
+  color: white;
+}
+#container{
+  /* height: 100vh;
+  overflow: scroll; */
+}
+#icons{
+  /* float: right; */
 }

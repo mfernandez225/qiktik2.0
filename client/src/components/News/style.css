@@ -1,0 +1,7 @@
+#maincontain{
+    background-color: #292929;
+    opacity: .92;
+    color: white;
+    height: 280px; 
+    overflow: scroll;
+}

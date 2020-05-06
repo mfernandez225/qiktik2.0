@@ -19,7 +19,7 @@ const SideNavbar = ({
   return (
     <div
       id="navie"
-      className="min-vh-100 d-flex flex-column  justify-content-between  p-3"
+      className="d-flex flex-column  justify-content-between  p-3"
     >
       {/* LOGO IMAGE - css: tabs: alignment, logo: sizing, fontMe: big font, fontMeSmall: small font*/}
       <div className="text-left text-white tabs">

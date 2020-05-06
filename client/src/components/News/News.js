@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Loader from "./Loader";
+import "./style.css";
+import { Container } from "reactstrap";
 // import StockSelect, {symbol} from "./components/Search";
 require("dotenv").config();
 
@@ -22,7 +24,7 @@ class News extends React.Component {
   getLatestNews() {
     fetch(
       "https://cloud.iexapis.com/stable/stock/AAPL/news/2?token=" +
-        process.env.REACT_APP_API_KEY_1
+      process.env.REACT_APP_API_KEY_1
 
       // 'https://cloud.iexapis.com/stable/stock/' + symbol + '/news/2?token=' +  process.env.REACT_APP_API_KEY_1
       // 'https://sandbox.iexapis.com/stable/stock/AAPL/news/2?token=' + process.env.REACT_APP_API_KEY_2
@@ -72,9 +74,10 @@ class News extends React.Component {
   }
   render() {
     return (
-      <div className="container mt-5 text-left">
-        <p className="fontMe">Latest Headlines</p>
-        <br></br>
+      <Container className=" text-center mt-2" id="maincontain">
+
+
+        <h4 className="fontMe m-3" id="headline"  style={{  fontSize: "50px" }}>Latest Headlines</h4>
         {newsHeadline.map((val, indx) => {
           return (
             <a
@@ -83,25 +86,27 @@ class News extends React.Component {
               rel="noopener noreferrer"
               key={indx}
             >
-              <div className="row article">
+              <div className="row article mt-2">
                 <div className="article__image" id={"img" + indx} />
                 <div className="article__content">
                   <div className="article__top">
                     {/* <h5>{newsDate[parseInt(indx)]}</h5> */}
                     <div className="row">
+                      <div className="col-3 text-right p-0">
                       <img
                         id="articleImage"
-                        alt="Article"
-                        className="col-sm-1"
+
                         style={{
-                          width: "60px",
-                          height: "60px",
-                          border: "1px solid #26B3A4",
+                          width: "180px",
+                          height: "120px",
+                          padding: "0",
+                          // border: "1px solid #26B3A4",
                         }}
                         src={newsImage[parseInt(indx)]}
                       />
+                      </div>
                       <p
-                        className="col-sm fontMe font-weight-bolder pt-3"
+                        className="col-sm fontMe font-weight-bolder "
                         style={{ color: "#26B3A4" }}
                       >
                         {val}
@@ -109,8 +114,8 @@ class News extends React.Component {
                     </div>
                   </div>
                   <h6
-                    className="fontMeSmall mt-3"
-                    style={{ color: "black", fontSize: "10px" }}
+                    className="fontMeSmall mt-2"
+                    style={{ color: "white", fontSize: "12px" }}
                   >
                     {newsSummary[parseInt(indx)]}........
                   </h6>
@@ -126,7 +131,7 @@ class News extends React.Component {
           </div>
         )}
         {this.state.loading && <Loader />}
-      </div>
+      </Container>
     );
   }
 }
