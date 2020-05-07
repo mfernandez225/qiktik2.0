@@ -1,4 +1,10 @@
 #homeLanding{
 height: 100vh;
+}
+#coll{
+    position: sticky;
+}
 
+#full{
+    height: 100vh;
 }
