@@ -5,3 +5,10 @@
 .App {
   text-align: center;
 }
+
+body{
+  background-color: #111111;
+  height: 100%;
+  width: auto;
+
+}

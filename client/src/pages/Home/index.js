@@ -27,10 +27,10 @@ const Home = () => {
   }, []);
 
   return (
-    <Container fluid={true} i>
-      <Row md="3">
+    <Container  fluid={true} i>
+      <Row md="3" id="full">
         {/* User is selecting and displaying favorite stocks from stock tile to side navbar */}
-        <Col xs="12" s="5" md="3" lg="3" style={{ marginLeft: "-15px" }}>
+        <Col id="coll" xs="12" s="5" md="3" lg="3" style={{ marginLeft: "-15px" }}>
           <SideNavbar
             favoriteStocks={favoriteStocks}
             setFavoriteStocks={setFavoriteStocks}
