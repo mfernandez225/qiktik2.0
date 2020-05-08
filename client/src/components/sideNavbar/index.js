@@ -90,6 +90,36 @@ const SideNavbar = ({
           >
             Forbes
           </NavLink>
+          <NavLink
+            className="text-light fontMeSmall hoverMe"
+            href="https://iexcloud.io/"
+          >
+            IEX CLOUD
+          </NavLink>
+          <NavLink
+            className="text-light fontMeSmall hoverMe"
+            href="https://us.etrade.com/home"
+          >
+            E TRADE
+          </NavLink>
+          <NavLink
+            className="text-light fontMeSmall hoverMe"
+            href="https://www.tdameritrade.com"
+          >
+            TD AMERITRADE
+          </NavLink>
+          <NavLink
+            className="text-light fontMeSmall hoverMe"
+            href="https://www.schwab.com"
+          >
+            CHARLES SCHWAB
+          </NavLink>
+          <NavLink
+            className="text-light fontMeSmall hoverMe"
+            href="https://www.morganstanley.com"
+          >
+            MORGAN STANLEY
+          </NavLink>
         </Nav>
       </div>
 

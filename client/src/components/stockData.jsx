@@ -2471,6 +2471,10 @@ const data = [
     name: "Cheviot Financial Corp",
   },
   {
+    symbol: "CHGG",
+    name: "Chegg",
+  },
+  {
     symbol: "CHFC",
     name: "Chemical Financial Corporation",
   },
@@ -12210,6 +12214,10 @@ const data = [
     name: "Theravance, Inc.",
   },
   {
+    symbol: "TWLO",
+    name: "Twilio",
+  },
+  {
     symbol: "THST",
     name: "Truett",
   },
@@ -13852,6 +13860,10 @@ const data = [
   {
     symbol: "ZLTQ",
     name: "ZELTIQ Aesthetics, Inc.",
+  },
+  {
+    symbol: "ZM",
+    name: "Zoom",
   },
   {
     symbol: "ZN",
