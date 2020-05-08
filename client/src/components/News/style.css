@@ -1,7 +1,14 @@
-#maincontain{
+#maincontain {
     background-color: #292929;
     opacity: .92;
     color: white;
-    height: 280px; 
-    overflow: scroll;
+
+}
+
+#latestHeadline {
+    font-size: 25px;
+}
+
+#articleText {
+    line-height: 1.6;
 }

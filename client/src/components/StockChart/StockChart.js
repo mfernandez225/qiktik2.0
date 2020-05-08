@@ -19,40 +19,40 @@ const StockChart = ({ symbol }) => {
           {
             label: "Closing Price",
             data: chartData.map((data) => data.close),
-            borderColor: ["rgb(0, 128, 0)"],
+            borderColor: ["#26B3A4"],
             fill: false,
             pointBackgroundColor: "white",
             // backgroundColor: "green",
-            borderWidth: 4,
+            borderWidth: 3,
           },
           {
             label: "High Price",
             data: chartData.map((data) => data.high),
-            borderColor: ["rgb(0, 0, 255)"],
+            borderColor: ["grey"],
             fill: false,
             pointBackgroundColor: "white",
-            pointHoverBackgroundColor: "black",
-            pointHoverRadius: 10,
+            // pointHoverBackgroundColor: "black",
+            // pointHoverRadius: 10,
 
             // backgroundColor: ["rgb(255, 255, 255)"],
-            borderWidth: 4,
+            borderWidth: 3,
           },
           {
             label: "Low Price",
             data: chartData.map((data) => data.low),
             fill: false,
-            borderColor: ["rgb(255, 0, 0)"],
+            borderColor: ["red"],
             pointBackgroundColor: "white",
 
             // backgroundColor: ["rgb(255, 255, 255)"],
-            borderWidth: 4,
+            borderWidth: 3,
           },
         ],
       }}
       options={{
         legend: {
           display: true,
-          position: "right",
+          position: "top",
         },
         tooltips: {
           displayColors: false,
