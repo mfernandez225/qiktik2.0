@@ -42,10 +42,12 @@
 
 
 
-#homeLogo {
-    /* margin-left: 0px; */
-    max-width: 125px;
-    max-height: 100px;
+#Logoo {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    /* margin-left: 5%; */
+    max-width: 75px;
+    max-height: 75px;
 }
 
 

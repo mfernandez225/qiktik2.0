@@ -8,3 +8,10 @@ height: 100vh;
 #full{
     height: 100vh;
 }
+
+#homeLogo {
+    
+    /* margin-left: 0px; */
+    max-width: 2500px;
+    max-height: 200px;
+}
