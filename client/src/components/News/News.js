@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Loader from "./Loader";
 import "./style.css";
 // import StockSelect, {symbol} from "./components/Search";
 require("dotenv").config();
@@ -129,7 +128,7 @@ class News extends React.Component {
             <h3>Sorry, no recent articles at this time.</h3>
           </div>
         )}
-        {this.state.loading && <Loader />}
+        {this.state.loading}
       </div>
     );
   }

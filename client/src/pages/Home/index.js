@@ -5,8 +5,6 @@ import SideNavbar from "../../components/sideNavbar";
 import { Container, Row, Col } from "reactstrap";
 import useAuth from "../../utils/use-auth";
 import API from "../../utils/API";
-import SAndPoor from "../../components/sAndPoor/index";
-import DOW from "../../components/dOW/index";
 import News from "../../components/News/News";
 import "./style.css";
 // loginRequired coming from useAuth in utils folder, ensuring that the user can't access qiktik without being logged in.
