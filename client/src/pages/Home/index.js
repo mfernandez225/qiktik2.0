@@ -27,10 +27,17 @@ const Home = () => {
   }, []);
 
   return (
-    <Container  fluid={true} i>
+    <Container fluid={true} i>
       <Row md="3" id="full">
         {/* User is selecting and displaying favorite stocks from stock tile to side navbar */}
-        <Col id="coll" xs="12" s="5" md="3" lg="3" style={{ marginLeft: "-15px" }}>
+        <Col
+          id="coll"
+          xs="12"
+          s="5"
+          md="3"
+          lg="3"
+          style={{ marginLeft: "-15px" }}
+        >
           <SideNavbar
             favoriteStocks={favoriteStocks}
             setFavoriteStocks={setFavoriteStocks}
@@ -39,11 +46,9 @@ const Home = () => {
         </Col>
 
         <Col className="text-center" md="9" sm="12">
-          <Row className="justify-content-center">
-            <SAndPoor />
-            <DOW />
-          </Row>
-
+          <div className="row-col-sm text-light fontMe m-5">
+            <h5>LOGO AND TITLE OF PAGE</h5>
+          </div>
           <Search onChange={(stock) => setSelectedStock(stock)} />
           {selectedStock && (
             <StockTile
@@ -52,6 +57,9 @@ const Home = () => {
               setFavoriteStocks={setFavoriteStocks}
             />
           )}
+          <div className="row-col-sm text-light fontMe m-5">
+            <h5>LATEST HEADLINES</h5>
+          </div>
           <News />
         </Col>
       </Row>
