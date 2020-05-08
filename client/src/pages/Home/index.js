@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import Search from "../../components/Search";
 import StockTile from "../../components/StockTile";
 import SideNavbar from "../../components/sideNavbar";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, Media } from "reactstrap";
 import useAuth from "../../utils/use-auth";
 import API from "../../utils/API";
 import News from "../../components/News/News";
 import "./style.css";
+import logo from "../../assets/imgs/simpleteal.png";
 // loginRequired coming from useAuth in utils folder, ensuring that the user can't access qiktik without being logged in.
 
 const Home = () => {
@@ -44,8 +45,10 @@ const Home = () => {
         </Col>
 
         <Col className="text-center" md="9" sm="12">
-          <div className="row-col-sm text-light fontMe m-5">
-            <h5>LOGO AND TITLE OF PAGE</h5>
+          <div className="row-col-sm text-light fontMe mt-3">
+              <Media left className="">
+              <Media object src={logo} alt="qiktik" id="homeLogo" />
+        </Media>
           </div>
           <Search onChange={(stock) => setSelectedStock(stock)} />
           {selectedStock && (
