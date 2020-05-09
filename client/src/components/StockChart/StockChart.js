@@ -46,7 +46,26 @@ const StockChart = ({ symbol }) => {
         legend: {
           display: true,
           position: "top",
+          labels: {
+            fontColor: "#fff",
+            fontSize: 16,
+          },
         },
+        // scale: {
+        //   gridLines: {
+        //     ticks: {
+        //       fontColor: "#fff",
+        //     },
+        //   },
+        // },
+        // scales: {
+        //   ticks: {
+        //     fontColor: "#fff",
+        //   },
+        //   xAxes: {
+        //     color: "#fff",
+        //   },
+        // },
         tooltips: {
           displayColors: false,
           bodyFontSize: 20,

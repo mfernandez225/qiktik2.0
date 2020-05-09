@@ -24,9 +24,9 @@ const SideNavbar = ({
       {/* LOGO IMAGE - css: tabs: alignment, logo: sizing, fontMe: big font, fontMeSmall: small font*/}
       <div className="text-left text-white tabs">
         <Row className="center ml-2">
-      <Media center >
-              <Media object src={logoo} alt="qiktik" id="Logoo" />
-        </Media>
+          <Media>
+            <Media object src={logoo} alt="qiktik" id="Logoo" />
+          </Media>
         </Row>
         <hr />
         <h5 className="text-light fontMe">Tracked Stocks</h5>
