@@ -26,7 +26,7 @@ const Home = () => {
   }, []);
 
   return (
-    <Container fluid={true} i>
+    <Container fluid={true}>
       <Row md="3" id="full">
         {/* User is selecting and displaying favorite stocks from stock tile to side navbar */}
         <Col
@@ -46,9 +46,9 @@ const Home = () => {
 
         <Col className="text-center" md="9" sm="12">
           <div className="row-col-sm text-light fontMe mt-3">
-              <Media left className="">
+            <Media left className="">
               <Media object src={logo} alt="qiktik" id="homeLogo" />
-        </Media>
+            </Media>
           </div>
           <Search onChange={(stock) => setSelectedStock(stock)} />
           {selectedStock && (
@@ -61,7 +61,7 @@ const Home = () => {
           <div className="row-col-sm text-light fontMe m-5">
             <h5>LATEST HEADLINES</h5>
           </div>
-          <News />
+          <News symbol={selectedStock ? selectedStock.symbol : null} />
         </Col>
       </Row>
     </Container>
