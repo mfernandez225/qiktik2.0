@@ -24,13 +24,6 @@ class News extends React.Component {
       `https://cloud.iexapis.com/stable/stock/${
         newSymbol || this.props.symbol || "AAPL"
       }/news/2?token=` + process.env.REACT_APP_API_KEY_1
-
-      // 'https://cloud.iexapis.com/stable/stock/' + symbol + '/news/2?token=' +  process.env.REACT_APP_API_KEY_1
-      // 'https://sandbox.iexapis.com/stable/stock/AAPL/news/2?token=' + process.env.REACT_APP_API_KEY_2
-
-      // "https://cloud.iexapis.com/stable/stock/" +
-      //   symbol +
-      // "/news/2?token=pk_ab67997aa39c4296b79de441635e9a49"
     )
       .then((res) => res.json())
       .then((result) => {

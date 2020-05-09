@@ -3,7 +3,7 @@
     opacity: .92;
     height: 100%;
     /* position: fixed; */
-  
+
 
 
 }
@@ -33,7 +33,7 @@
 }
 
 #deleteFavoriteStock:hover {
-    color: white;
+    color: #26b3a4;
 }
 
 .tabs {
