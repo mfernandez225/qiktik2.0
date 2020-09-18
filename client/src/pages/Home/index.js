@@ -20,9 +20,11 @@ const Home = () => {
   }, [loginRequired]);
 
   useEffect(() => {
-    API.getFavorites().then(({ data: favorites }) => {
-      setFavoriteStocks(favorites);
-    });
+    API.getFavorites()
+    .then(({ data: favorites }) => {
+    setFavoriteStocks(favorites);
+    })
+    .catch(err=>console.log(err))
   }, []);
 
   return (

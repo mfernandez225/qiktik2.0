@@ -88,6 +88,7 @@ class News extends React.Component {
                       <div className="">
                         <img
                           id="articleImage"
+                          alt={val}
                           style={{
                             width: "350px",
                             height: "200px",
