@@ -1,6 +1,5 @@
-const User = require("../../models/User.js");
 const router = require("express").Router();
-const { authenticate } = require("../../utils/auth");
+const { authenticate } = require("../../authentication/authentication");
 
 // Using authenticate to verify the request by the user and fetching the user record.
 router.route("/stocks").get((req, res) => {
