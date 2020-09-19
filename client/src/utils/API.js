@@ -28,4 +28,7 @@ export default {
   deleteFavorite: (favoriteStock) => {
     return axios.delete(`/api/users/stocks/${favoriteStock._id}`, headers());
   },
+  getStocks: ()=>{
+    return axios.get("/api/stocks")
+  }
 };
