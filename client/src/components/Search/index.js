@@ -14,8 +14,10 @@ export default function StockSelect({ onChange }) {
 //   .then(res=>console.log(res))
 //   .catch(err=>console.log(err))
 // }
-const options = [{ symbol: "A",
-name: "Agilent Technologies Inc",},{
+const options = [
+  { symbol: "A",
+    name: "Agilent Technologies Inc",},
+  {
   symbol: "B",
   name:"beta"
 },{

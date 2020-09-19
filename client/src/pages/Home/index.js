@@ -56,7 +56,7 @@ const Home = () => {
             <StockTile
               selectedStock={selectedStock}
               favoriteStocks={favoriteStocks}
-              setFavoriteStocks={setFavoriteStocks}
+              // setFavoriteStocks={setFavoriteStocks}
             />
           )}
           <div className="row-col-sm text-light fontMe m-5">
