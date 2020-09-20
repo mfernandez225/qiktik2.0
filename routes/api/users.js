@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { authenticate } = require("../../authentication/authentication");
+const authenticate = require("../../authentication/authentication");
 
 // Using authenticate to verify the request by the user and fetching the user record.
 router.route("/favorites").get((req, res) => {

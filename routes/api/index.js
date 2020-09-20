@@ -7,6 +7,6 @@ const stocksRoutes = require("./stocks");
 router.use("/signup", signupRoutes);
 router.use("/users", userRoutes);
 router.use("/auth", authRoutes);
-router.use("/stocks", stocksRoutes)
+router.use("/", stocksRoutes)
 
 module.exports = router;
