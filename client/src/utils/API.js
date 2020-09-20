@@ -20,15 +20,15 @@ export default {
     return axios.post("/api/auth/login", { email, password });
   },
   getFavorites: () => {
-    return axios.get("/api/users/stocks", headers());
+    return axios.get("/api/users/favorites", headers());
   },
   saveFavorite: (selectedStock) => {
-    return axios.post("/api/users/stocks", { ...selectedStock }, headers());
+    return axios.post("/api/users/favorites", { ...selectedStock }, headers());
   },
   deleteFavorite: (favoriteStock) => {
-    return axios.delete(`/api/users/stocks/${favoriteStock._id}`, headers());
+    return axios.delete(`/api/users/favorites/${favoriteStock._id}`, headers());
   },
-  getStocks: ()=>{
+  getStocks: () => {
     return axios.get("/api/stocks")
   }
 };

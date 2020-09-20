@@ -17,10 +17,9 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/qiktik',
-{useNewUrlParser:true, useUnifiedTopology: true});
-// mongoose.connect(process.env.MONGO_URI ,{ useNewUrlParser: true , useCreateIndex: true} )
-// .then(()=>console.log(`mongodb connected on port ${PORT}`))
-// .catch(err => console.log(err));
+{useNewUrlParser:true, useUnifiedTopology: true, useCreateIndex: true})
+.then(()=>console.log(`mongodb connected on port ${PORT}`))
+.catch(err => console.log(err));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

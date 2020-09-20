@@ -1,13 +1,7 @@
-const router =require("express").Router();
-const Alpaca = require('@alpacahq/alpaca-trade-api');
-const alpaca = new Alpaca();
+const router = require("express").Router();
+const stocksController = require('../../controllers/stocksController');
 
 router.route("/stocks")
-.get(
-     activeAssets = alpaca.getAssets({
-        status: 'active'
-    }).then((activeAssets) => {
-        const nasdaqAssets = activeAssets.filter(asset => asset.exchange == 'NASDAQ')
-        console.log(nasdaqAssets)
-    })
-)
+.get(stocksController.findAll)
+
+module.exports = router

@@ -13,6 +13,7 @@ const Home = () => {
   const { loginRequired } = useAuth();
   const [selectedStock, setSelectedStock] = useState();
   const [favoriteStocks, setFavoriteStocks] = useState([]);
+  
 
   useEffect(() => {
     loginRequired();
