@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Line } from "react-chartjs-2";
 import { Spinner } from "reactstrap";
+const IEX_TOKEN = process.env.REACT_APP_IEX_TOKEN
 
 const StockChart = ({ symbol }) => {
   const [chartData, setChartData] = useState();
 
   useEffect(() => {
-    const chartApiUrl = `https://cloud.iexapis.com/stable/stock/${symbol}/batch?token=pk_ab67997aa39c4296b79de441635e9a49&types=chart,quote&range=ytd`;
+    const chartApiUrl = `https://cloud.iexapis.com/stable/stock/${symbol}/batch?token=${IEX_TOKEN}&types=chart,quote&range=ytd`;
     axios(chartApiUrl).then(({ data: { chart } }) => setChartData(chart));
   }, [symbol]);
 

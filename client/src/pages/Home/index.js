@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import Search from "../../components/Search";
 import StockTile from "../../components/StockTile";
 import SideNavbar from "../../components/sideNavbar";
-import { Container, Row, Col, Media } from "reactstrap";
+import { Container, Row, Col, Media, Button } from "reactstrap";
 import useAuth from "../../utils/use-auth";
 import API from "../../utils/API";
 import "./style.css";
 import logo from "../../assets/imgs/simpleteal.png";
+import StockCard from "../../components/StockCard";
 // loginRequired coming from useAuth in utils folder, ensuring that the user can't access qiktik without being logged in.
 
 const Home = () => {
@@ -26,6 +27,9 @@ const Home = () => {
     })
     .catch(err=>console.log(err))
   }, []);
+
+
+ 
 
   return (
     <Container fluid={true}>
@@ -54,11 +58,7 @@ const Home = () => {
           </div>
           <Search onChange={(stock) => setSelectedStock(stock)} />
           {selectedStock && (
-            <StockTile
-              selectedStock={selectedStock}
-              favoriteStocks={favoriteStocks}
-              // setFavoriteStocks={setFavoriteStocks}
-            />
+            StockCard(selectedStock)
           )}
           <div className="row-col-sm text-light fontMe m-5">
             <h5>LATEST HEADLINES</h5>

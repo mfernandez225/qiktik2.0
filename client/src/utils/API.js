@@ -6,6 +6,7 @@ const headers = () => ({
     Authorization: `Bearer ${localStorage.getItem("token")}`,
   },
 });
+const IEX_TOKEN = process.env.REACT_APP_IEX_TOKEN 
 
 export default {
   signup: (firstName, lastName, email, password) => {
@@ -30,5 +31,11 @@ export default {
   },
   getStocks: () => {
     return axios.get("/api/stocks")
+  },
+  getStockInfo : (symbol)=>{
+    return axios.get(`https://cloud.iexapis.com/stable/stock/${symbol}/quote?token=${IEX_TOKEN}`)
+  },
+  getChart : (symbol,range) => {
+    return axios.get(`https://cloud.iexapis.com/stable/stock/${symbol}/batch?token=${IEX_TOKEN}&types=chart,quote&range=${range}`)
   }
 };

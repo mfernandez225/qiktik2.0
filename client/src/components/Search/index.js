@@ -2,7 +2,7 @@ import React, {useRef, useState, useEffect} from "react";
 import { Typeahead } from "react-bootstrap-typeahead";
 import API from "../../utils/API";
 
-export default function StockSelect({ onChange }) {
+export default function Search({ onChange }) {
   const ref = useRef();
   const [stocks, setStocks]= useState([]);
   useEffect(()=>{

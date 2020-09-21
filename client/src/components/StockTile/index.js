@@ -24,11 +24,7 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
   useEffect(() => {
     
     fetch(
-      `https://sandbox.iexapis.com/stable/stock/
-        ${symbol}
-        /quote/2?token=
-        ${IEX_TOKEN}
-        `
+      `https://sandbox.iexapis.com/stable/stock/${symbol}/quote?token=${IEX_TOKEN}`
     )
       .then((res) => res.json())
       .then(
