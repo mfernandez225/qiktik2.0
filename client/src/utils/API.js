@@ -6,7 +6,8 @@ const headers = () => ({
     Authorization: `Bearer ${localStorage.getItem("token")}`,
   },
 });
-const IEX_TOKEN = process.env.REACT_APP_IEX_TOKEN 
+const TOKEN = process.env.REACT_APP_TOKEN; 
+const URL = process.env.REACT_APP_API_URL;
 
 export default {
   signup: (firstName, lastName, email, password) => {
@@ -33,9 +34,9 @@ export default {
     return axios.get("/api/stocks")
   },
   getStockInfo : (symbol)=>{
-    return axios.get(`https://cloud.iexapis.com/stable/stock/${symbol}/quote?token=${IEX_TOKEN}`)
+    return axios.get(`${URL+symbol}/quote?token=${TOKEN}`)
   },
   getChart : (symbol,range) => {
-    return axios.get(`https://cloud.iexapis.com/stable/stock/${symbol}/batch?token=${IEX_TOKEN}&types=chart,quote&range=${range}`)
+    return axios.get(`https://cloud.iexapis.com/stable/stock/${symbol}/batch?token=${TOKEN}&types=chart,quote&range=${range}`)
   }
 };

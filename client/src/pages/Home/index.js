@@ -1,25 +1,18 @@
 import React, { useState, useEffect } from "react";
-import Search from "../../components/Search";
-import StockTile from "../../components/StockTile";
-import SideNavbar from "../../components/sideNavbar";
-import { Container, Row, Col, Media, Button } from "reactstrap";
-import useAuth from "../../utils/use-auth";
-import API from "../../utils/API";
+import {Search, SideNavbar, StockCard} from '../../components'
+import { Container, Row, Col, Media } from "reactstrap";
+import{API, useAuth} from '../../utils'
 import "./style.css";
 import logo from "../../assets/imgs/simpleteal.png";
-import StockCard from "../../components/StockCard";
 // loginRequired coming from useAuth in utils folder, ensuring that the user can't access qiktik without being logged in.
 
 const Home = () => {
   const { loginRequired } = useAuth();
-  const [selectedStock, setSelectedStock] = useState();
-  const [favoriteStocks, setFavoriteStocks] = useState([]);
-  
-
   useEffect(() => {
     loginRequired();
   }, [loginRequired]);
 
+  const [favoriteStocks, setFavoriteStocks] = useState([]);
   useEffect(() => {
     API.getFavorites()
     .then(({ data: favorites }) => {
@@ -27,6 +20,24 @@ const Home = () => {
     })
     .catch(err=>console.log(err))
   }, []);
+ 
+  const[displayData, setDisplayData]= useState([]);
+
+
+
+   console.log(displayData)
+  function handleInput ({symbol}) {
+   API.getStockInfo(symbol)
+   .then(res => {
+     setDisplayData(res.data)
+    })
+   .catch(res => console.log(res))
+  
+  }
+
+  function handleSubmit (event){
+    console.log(event.symbol)
+  }
 
 
  
@@ -46,7 +57,6 @@ const Home = () => {
           <SideNavbar
             favoriteStocks={favoriteStocks}
             setFavoriteStocks={setFavoriteStocks}
-            setSelectedStock={setSelectedStock}
           />
         </Col>
 
@@ -56,13 +66,8 @@ const Home = () => {
               <Media object src={logo} alt="qiktik" id="homeLogo" />
             </Media>
           </div>
-          <Search onChange={(stock) => setSelectedStock(stock)} />
-          {selectedStock && (
-            StockCard(selectedStock)
-          )}
-          <div className="row-col-sm text-light fontMe m-5">
-            <h5>LATEST HEADLINES</h5>
-          </div>
+          <Search name="symbolLookup" onClick={handleSubmit} onChange={handleInput} />
+          {displayData.length !== 0 ? StockCard(displayData):false}
         </Col>
       </Row>
     </Container>
