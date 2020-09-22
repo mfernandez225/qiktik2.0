@@ -33,10 +33,7 @@ export default {
   getStocks: () => {
     return axios.get("/api/stocks")
   },
-  getStockInfo : (symbol)=>{
-    return axios.get(`${URL+symbol}/quote?token=${TOKEN}`)
-  },
   getChart : (symbol,range) => {
-    return axios.get(`https://cloud.iexapis.com/stable/stock/${symbol}/batch?token=${TOKEN}&types=chart,quote&range=${range}`)
+    return axios.get(`${URL+symbol}/batch?token=${TOKEN}&types=chart,quote&range=${range}`)
   }
 };

@@ -1,19 +1,11 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Line } from "react-chartjs-2";
-import { Spinner } from "reactstrap";
-const IEX_TOKEN = process.env.REACT_APP_IEX_TOKEN
+import React from 'react';
+import Line from 'react-chartjs-2';
 
-const StockChart = ({ symbol }) => {
-  const [chartData, setChartData] = useState();
-
-  useEffect(() => {
-    const chartApiUrl = `https://cloud.iexapis.com/stable/stock/${symbol}/batch?token=${IEX_TOKEN}&types=chart,quote&range=ytd`;
-    axios(chartApiUrl).then(({ data: { chart } }) => setChartData(chart));
-  }, [symbol]);
-
-  return chartData ? (
-    <Line
+function Chart (chartData) { 
+  
+    return(
+       <div>
+            <Line
       data={{
         labels: chartData.map((data) => data.label),
         datasets: [
@@ -67,9 +59,16 @@ const StockChart = ({ symbol }) => {
         },
       }}
     />
-  ) : (
-    <Spinner />
-  );
-};
+       </div>
+           
+                )
+   
+}
+   
+   
 
-export default StockChart;
+
+
+
+
+export default Chart

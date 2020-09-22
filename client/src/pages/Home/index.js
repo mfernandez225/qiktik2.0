@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Search, SideNavbar, StockCard} from '../../components'
+import {Search, SideNavbar, StockCard,Chart} from '../../components'
 import { Container, Row, Col, Media } from "reactstrap";
 import{API, useAuth} from '../../utils'
 import "./style.css";
@@ -22,21 +22,31 @@ const Home = () => {
   }, []);
  
   const[displayData, setDisplayData]= useState([]);
+  const [chartData, setChartData] = useState([]);
 
 
+  const [range, setRange]= useState("ytd");
+  
 
-   console.log(displayData)
-  function handleInput ({symbol}) {
-   API.getStockInfo(symbol)
-   .then(res => {
-     setDisplayData(res.data)
+function handleInput ({symbol}) {
+   API.getChart(symbol,range)
+   .then(({data}) => {
+     let quote = data.quote
+     let chart = data.chart
+     setDisplayData(quote)
+     setChartData(chart)
     })
-   .catch(res => console.log(res))
   
   }
 
-  function handleSubmit (event){
-    console.log(event.symbol)
+  function handleSubmit ({symbol}){
+    API.getChart(symbol,range)
+   .then(({data}) => {
+     let quote = data.quote
+     let chart = data.chart
+     setDisplayData(quote)
+     setChartData(chart)
+    })
   }
 
 
@@ -66,8 +76,26 @@ const Home = () => {
               <Media object src={logo} alt="qiktik" id="homeLogo" />
             </Media>
           </div>
-          <Search name="symbolLookup" onClick={handleSubmit} onChange={handleInput} />
-          {displayData.length !== 0 ? StockCard(displayData):false}
+          <Search name="symbolLookup" 
+          onClick={handleSubmit} 
+          onChange={handleInput} />
+
+          <Row >
+          <Col>
+          {displayData.length !== 0 ? 
+          StockCard(displayData):false}
+          </Col>
+          
+            
+               {chartData.length !== 0?
+             Chart(chartData):false}
+            
+         
+         
+          </Row>
+          
+          
+          
         </Col>
       </Row>
     </Container>
