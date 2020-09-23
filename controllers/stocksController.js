@@ -1,37 +1,34 @@
-const db = require('../models');
+const Alpaca = require('@alpacahq/alpaca-trade-api')
+require("dotenv").config();
+const alpaca = new Alpaca({
+    keyId:process.env.ALPACA_API_KEY_ID,
+    secretKey:process.env.ALPACA_API_SECERET_KEY,
+    paper:true,
+    usePolygon:false
+})
 
-module.exports= {
-    findAll: function ({query}, response) {
-        db.Stocks
-        .find((query))
-        .sort({date:-1})
-        .then(dbModel => response.json(dbModel))
-        .catch(err => response.status(422).json(err));
-    },
-    findById: function (req, res){
-        db.Stocks
-        .findById(req.params.id)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err))
-    },
-    create: function(req,res){
-        db.Stocks
-        .create(req.body)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
-    },
-    update: function(req,res){
-        db.Stocks
-        .findOneAndUpdate({_id: req.params.id },req.body)
-        .then(dbModel => res.json(dbModel))
-        .catch(err=> res.status(422).json(err));
-    },
-    remove: function(req,res){
-        db.Stocks
-        .findById({_id:req.params.id})
-        .then(dbModel => dbModel.remove())
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err))
+//  Get a list of all active assets.
+
+// const activeAssets = alpaca.getAssets({
+//     status: 'active'
+// }).then((activeAssets) => {
+
+//     Filter the assets down to just those on NASDAQ.
+
+//     const nasdaqAssets = activeAssets.filter(asset => asset.exchange == 'NASDAQ');
+//     console.log(nasdaqAssets);
+//     return nasdaqAssets;
+// })
+
+module.exports = {
+    activeAssets: function(req,res){
+        alpaca.getAssets({
+        status:'active'
+        })
+        .then(activeAssets =>{
+        const nasdaqAssets = activeAssets.filter(asset=> asset.exchange == 'NASDAQ')
+        res.json(nasdaqAssets)
+})
     }
-    
 };
+    

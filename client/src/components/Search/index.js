@@ -12,8 +12,8 @@ export default function Search({ onChange }) {
   function loadStocks() {
     API.getStocks()
     .then(res => 
-      // console.log(res.data)
-      setStocks(res.data)
+     { console.log(res.data)
+      setStocks(res.data)}
       )
       .catch(err => console.log(err));
   }
