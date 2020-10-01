@@ -7,18 +7,7 @@ const alpaca = new Alpaca({
     usePolygon:false
 })
 
-//  Get a list of all active assets.
 
-// const activeAssets = alpaca.getAssets({
-//     status: 'active'
-// }).then((activeAssets) => {
-
-//     Filter the assets down to just those on NASDAQ.
-
-//     const nasdaqAssets = activeAssets.filter(asset => asset.exchange == 'NASDAQ');
-//     console.log(nasdaqAssets);
-//     return nasdaqAssets;
-// })
 
 module.exports = {
     activeAssets: function(req,res){
@@ -28,7 +17,19 @@ module.exports = {
         .then(activeAssets =>{
         const nasdaqAssets = activeAssets.filter(asset=> asset.exchange == 'NASDAQ')
         res.json(nasdaqAssets)
-})
+        })
+    },
+    barset: function(req,res){
+        let symbol = req.params.symbol
+        alpaca.getBars('day',symbol, {limit:5})
+        .then((barset)=>{
+            
+            const symbol_bars = barset[symbol]
+            console.log(symbol_bars)
+        
+             res.json(symbol_bars);
+        })
+        .catch(err => console.log(err))
     }
 };
     

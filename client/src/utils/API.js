@@ -33,7 +33,7 @@ export default {
   getStocks: () => {
     return axios.get("/api/stocks")
   },
-  getChart : (symbol,range) => {
-    return axios.get(`${URL+symbol}/batch?token=${TOKEN}&types=chart,quote&range=${range}`)
+  getBars : (symbol) => {
+    return axios.get(`/api/stocks/${symbol}`)
   }
 };

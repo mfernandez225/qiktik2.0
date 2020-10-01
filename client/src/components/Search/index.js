@@ -1,22 +1,11 @@
-import React, {useRef, useState, useEffect} from "react";
+import React, {useRef} from "react";
 import { Typeahead } from "react-bootstrap-typeahead";
-import API from "../../utils/API";
 
-export default function Search({ onChange }) {
+
+export default function Search(props,{onChange}) {
   const ref = useRef();
-  const [stocks, setStocks]= useState([]);
-  useEffect(()=>{
-    loadStocks()
-  }, [])
-
-  function loadStocks() {
-    API.getStocks()
-    .then(res => 
-     { console.log(res.data)
-      setStocks(res.data)}
-      )
-      .catch(err => console.log(err));
-  }
+  // console.log(props.stocks)
+  
   
   // Clears stock search once a card is displayed
   const handleChange = (selected) => {
@@ -32,7 +21,7 @@ export default function Search({ onChange }) {
       id="stock-search"
       labelKey={(stock) => `${stock.symbol}: ${stock.name}`}
       onChange={handleChange}
-      options={stocks}
+      options={props.stocks}
       placeholder="Choose a stock..."
       ref={ref}
     ></Typeahead>

@@ -22,32 +22,35 @@ const Home = () => {
   }, []);
  
   const[displayData, setDisplayData]= useState([]);
+  const [stocks, setStocks]= useState([]);
+  useEffect(()=>{
+     loadStocks()
+  }, [])
+
+  function loadStocks() {
+    API.getStocks()
+    .then(res => 
+     { //console.log(res.data)
+      setStocks(res.data)}
+      )
+      .catch(err => console.log(err));
+  }
+
   const [chartData, setChartData] = useState([]);
 
 
-  const [range, setRange]= useState("ytd");
+  
   
 
 function handleInput ({symbol}) {
-   API.getChart(symbol,range)
-   .then(({data}) => {
-     let quote = data.quote
-     let chart = data.chart
-     setDisplayData(quote)
-     setChartData(chart)
-    })
-  
+API.getBars(symbol)
+.then(res => setChartData(res.data))
+.catch(err => console.log(err));
+
+
+
   }
 
-  function handleSubmit ({symbol}){
-    API.getChart(symbol,range)
-   .then(({data}) => {
-     let quote = data.quote
-     let chart = data.chart
-     setDisplayData(quote)
-     setChartData(chart)
-    })
-  }
 
 
  
@@ -77,21 +80,19 @@ function handleInput ({symbol}) {
             </Media>
           </div>
           <Search name="symbolLookup" 
-          onClick={handleSubmit} 
-          onChange={handleInput} />
+          onChange={handleInput}
+          stocks={stocks}
+          />
 
           <Row >
           <Col>
           {displayData.length !== 0 ? 
           StockCard(displayData):false}
           </Col>
-          
-            
+    
                {chartData.length !== 0?
              Chart(chartData):false}
             
-         
-         
           </Row>
           
           
