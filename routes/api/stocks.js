@@ -6,5 +6,6 @@ router.route("/")
 
 router.route('/:symbol')
 .get(stocksController.barset)
+.get(stocksController.particularAssets)
 
 module.exports = router

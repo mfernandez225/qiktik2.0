@@ -26,8 +26,11 @@
     "client": "cd client && npm run start",
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
+    "prebuild": "npm major patch",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "preadd": "npm version patch",
+    "add": "node gitAdd.js"
   },
   "repository": {
     "type": "git",

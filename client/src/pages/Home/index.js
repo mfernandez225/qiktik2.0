@@ -1,59 +1,79 @@
 import React, { useState, useEffect } from "react";
-import {Search, SideNavbar, StockCard,Chart} from '../../components'
+import { Search, SideNavbar, StockCard, Chart } from "../../components";
 import { Container, Row, Col, Media } from "reactstrap";
-import{API, useAuth} from '../../utils'
+import { API, useAuth } from "../../utils";
 import "./style.css";
 import logo from "../../assets/imgs/simpleteal.png";
 // loginRequired coming from useAuth in utils folder, ensuring that the user can't access qiktik without being logged in.
 
 const Home = () => {
   const { loginRequired } = useAuth();
-  useEffect(() => {
-    loginRequired();
-  }, [loginRequired]);
-
   const [favoriteStocks, setFavoriteStocks] = useState([]);
-  useEffect(() => {
-    API.getFavorites()
-    .then(({ data: favorites }) => {
-    setFavoriteStocks(favorites);
-    })
-    .catch(err=>console.log(err))
+  const [displayData, setDisplayData] = useState({});
+  const [stocks, setStocks] = useState([]);
+  const [value,setValue] = useState("")
+  const [chartData, setChartData] = useState();
+  const [isLoading, setIsLoading] = useState(true)
+useEffect(() => {
+    // loginRequired();
+    loadStocks();
+    // loadFavorites();
   }, []);
- 
-  const[displayData, setDisplayData]= useState([]);
-  const [stocks, setStocks]= useState([]);
-  useEffect(()=>{
-     loadStocks()
-  }, [])
+
+
+  function organizeChartData (data){
+    const labels= data.map(day =>{
+     let theDate = new Date(day.startEpochTime*1000)
+     return theDate.toLocaleDateString()
+      });
+    const close = data.map(day=>{
+      let c = new Number(day.closePrice)
+      return c.toLocaleString()
+      });
+    const high = data.map(day => day.highPrice);
+    const low = data.map(day => day.lowPrice);
+    setChartData({labels:labels,close:close,high:high,low:low})
+    console.log(labels)
+  }
 
   function loadStocks() {
     API.getStocks()
-    .then(res => 
-     { //console.log(res.data)
-      setStocks(res.data)}
-      )
-      .catch(err => console.log(err));
+      .then((res) => {
+        //console.log(res.data)
+        setStocks(res.data);
+      })
+      .catch((err) => console.log(err));
   }
-
-  const [chartData, setChartData] = useState([]);
-
-
-  
-  
-
-function handleInput ({symbol}) {
-API.getBars(symbol)
-.then(res => setChartData(res.data))
-.catch(err => console.log(err));
-
-
-
+  function loadFavorites() {
+    API.getFavorites()
+    .then(({ data: favorites }) => {
+      setFavoriteStocks(favorites);
+    })
+    .catch((err) => console.log(err));
   }
-
-
 
  
+
+  function handleInput(event) {
+    let symbol;
+    event.length === 0?
+    setIsLoading(true):
+   symbol=event[0].symbol
+   API.getBars(symbol)
+   .then(res=>{
+     let data = res.data
+     console.log(data)
+     organizeChartData(data)
+     setIsLoading(false)
+    })
+   .catch(err =>console.log(err))
+  //  API.getStocks(symbol)
+  //  .then(res=>{
+  //    console.log(res.data)
+  //    setDisplayData(res.data)
+  //  })
+   
+  }
 
   return (
     <Container fluid={true}>
@@ -79,24 +99,15 @@ API.getBars(symbol)
               <Media object src={logo} alt="qiktik" id="homeLogo" />
             </Media>
           </div>
-          <Search name="symbolLookup" 
-          onChange={handleInput}
-          stocks={stocks}
-          />
+          <Search name="symbolLookup" onChange={(event)=>handleInput(event)} stocks={stocks} />
 
-          <Row >
-          <Col>
-          {displayData.length !== 0 ? 
-          StockCard(displayData):false}
-          </Col>
-    
-               {chartData.length !== 0?
-             Chart(chartData):false}
-            
+          <Row>
+            {/* <Col>
+              {displayData.length !== 0 ? StockCard(displayData) : false}
+            </Col> */}
+
+            {isLoading? false:<Chart chartData={chartData} />}
           </Row>
-          
-          
-          
         </Col>
       </Row>
     </Container>

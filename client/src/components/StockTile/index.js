@@ -3,7 +3,7 @@ import { Card, CardBody, Row } from "reactstrap";
 import API from "../../utils/API";
 import StockChart from "../StockChart/StockChart";
 import "./style.css";
-const IEX_TOKEN = process.env.REACT_APP_IEX_TOKEN
+const IEX_TOKEN = process.env.REACT_APP_IEX_TOKEN;
 
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -22,7 +22,6 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
   const { symbol } = selectedStock;
 
   useEffect(() => {
-    
     fetch(
       `https://sandbox.iexapis.com/stable/stock/${symbol}/quote?token=${IEX_TOKEN}`
     )

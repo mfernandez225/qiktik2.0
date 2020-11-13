@@ -1,13 +1,11 @@
 import axios from "axios";
-require("dotenv").config();
+
 // Sending an authorization header along with our request is authorizing the request
 const headers = () => ({
   headers: {
     Authorization: `Bearer ${localStorage.getItem("token")}`,
   },
 });
-const TOKEN = process.env.REACT_APP_TOKEN; 
-const URL = process.env.REACT_APP_API_URL;
 
 export default {
   signup: (firstName, lastName, email, password) => {

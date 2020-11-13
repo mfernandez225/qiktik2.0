@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Line } from "react-chartjs-2";
 import { Spinner } from "reactstrap";
-const IEX_TOKEN = process.env.REACT_APP_IEX_TOKEN
+const IEX_TOKEN = process.env.REACT_APP_IEX_TOKEN;
 
 const StockChart = ({ symbol }) => {
   const [chartData, setChartData] = useState();
