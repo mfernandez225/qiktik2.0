@@ -1,13 +1,13 @@
-import React, {Fragment} from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-  <Fragment>
+  <React.StrictMode>
     <App />
-  </Fragment>,
+  </React.StrictMode>,
   document.getElementById("root")
 );
 

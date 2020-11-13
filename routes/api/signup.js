@@ -1,4 +1,4 @@
-const db = require("../../models/");
+const User = require("../../models/User.js");
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken");
 
 router.route("/").post((req, res) => {
   const { firstName, lastName, email, password } = req.body;
-  db.User.findOne({ email }, (error, user) => {
+  User.findOne({ email }, (error, user) => {
     if (error) {
       res.status(500).send({ error });
       return;

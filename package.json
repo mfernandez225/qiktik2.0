@@ -1,36 +1,30 @@
 {
   "name": "qiktik2.0",
   "version": "1.0.0",
-  "description": "Track your favorite stocks",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server.js",
   "dependencies": {
-    "@alpacahq/alpaca-trade-api": "^1.4.1",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
+    "concurrently": "^5.1.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.9",
+    "nodemon": "^2.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2"
   },
-  "devDependencies": {
-    "concurrently": "^5.3.0",
-    "nodemon": "^1.18.7"
-  },
+  "devDependencies": {},
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
-    "prebuild": "npm major patch",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build",
-    "preadd": "npm version patch",
-    "add": "node gitAdd.js"
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
