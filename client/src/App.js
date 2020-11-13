@@ -1,7 +1,5 @@
 import React from "react";
-import Home from "../../client/src/pages/Home/index.js";
-import Signup from "../../client/src/pages/Signup/index.js";
-import Login from "../../client/src/pages/Login/index.js";
+import { Home, Login, Signup } from "./pages";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 

@@ -1,16 +1,15 @@
-const User = require("../../models/User.js");
 const router = require("express").Router();
-const { authenticate } = require("../../utils/auth");
+const authenticate = require("../../authentication/authentication");
 
 // Using authenticate to verify the request by the user and fetching the user record.
-router.route("/stocks").get((req, res) => {
+router.route("/favorites").get((req, res) => {
   authenticate(req, res, (user) => {
     res.send(user.stocks);
   });
 });
 
 // Users info is being checked against hashed token so it can store stocks to them in the database
-router.route("/stocks").post((req, res) => {
+router.route("/favorites").post((req, res) => {
   authenticate(req, res, (user) => {
     const { name, symbol } = req.body;
     user.stocks.addToSet({ name, symbol });
@@ -19,7 +18,7 @@ router.route("/stocks").post((req, res) => {
   });
 });
 // We check the stockId against what is favorited to then remove stock.
-router.route("/stocks/:id").delete((req, res) => {
+router.route("/favorites/:id").delete((req, res) => {
   authenticate(req, res, (user) => {
     const stockId = req.params.id;
     user.stocks.remove(stockId);

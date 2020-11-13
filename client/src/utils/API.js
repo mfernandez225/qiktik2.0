@@ -1,5 +1,5 @@
 import axios from "axios";
-require("dotenv").config();
+
 // Sending an authorization header along with our request is authorizing the request
 const headers = () => ({
   headers: {
@@ -20,12 +20,19 @@ export default {
     return axios.post("/api/auth/login", { email, password });
   },
   getFavorites: () => {
-    return axios.get("/api/users/stocks", headers());
+    return axios.get("/api/users/favorites", headers());
   },
   saveFavorite: (selectedStock) => {
-    return axios.post("/api/users/stocks", { ...selectedStock }, headers());
+    return axios.post("/api/users/favorites", { ...selectedStock }, headers());
   },
   deleteFavorite: (favoriteStock) => {
-    return axios.delete(`/api/users/stocks/${favoriteStock._id}`, headers());
+    return axios.delete(`/api/users/favorites/${favoriteStock._id}`, headers());
   },
+  getStocks: () => {
+    return axios.get("/api/stocks")
+  },
+  getBars : (symbol) => {
+    return axios.get(`/api/stocks/bars/${symbol}`)
+  },
+  getStock : symbol => axios.get(`/api/stocks/${symbol}`)
 };
