@@ -34,7 +34,7 @@ module.exports = {
   particularAssets: ({ params }, res) => {
     alpaca
       .getAsset(params.symbol)
-      .then((asset) => console.log(asset))
+      .then((asset) => res.json(asset))
       .catch((err) => console.log(err));
   },
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Search, SideNavbar, StockCard, Chart } from "../../components";
-import { Container, Row, Col, Media } from "reactstrap";
+import { Container, Row, Col,Media } from "reactstrap";
 import { API, useAuth } from "../../utils";
 import "./style.css";
 import logo from "../../assets/imgs/simpleteal.png";
@@ -11,30 +11,13 @@ const Home = () => {
   const [favoriteStocks, setFavoriteStocks] = useState([]);
   const [displayData, setDisplayData] = useState({});
   const [stocks, setStocks] = useState([]);
-  const [value,setValue] = useState("")
-  const [chartData, setChartData] = useState();
+  const [chartData, setChartData] = useState({});
   const [isLoading, setIsLoading] = useState(true)
 useEffect(() => {
-    // loginRequired();
+    loginRequired();
     loadStocks();
     // loadFavorites();
-  }, []);
-
-
-  function organizeChartData (data){
-    const labels= data.map(day =>{
-     let theDate = new Date(day.startEpochTime*1000)
-     return theDate.toLocaleDateString()
-      });
-    const close = data.map(day=>{
-      let c = new Number(day.closePrice)
-      return c.toLocaleString()
-      });
-    const high = data.map(day => day.highPrice);
-    const low = data.map(day => day.lowPrice);
-    setChartData({labels:labels,close:close,high:high,low:low})
-    console.log(labels)
-  }
+  }, [loginRequired]);
 
   function loadStocks() {
     API.getStocks()
@@ -55,24 +38,28 @@ useEffect(() => {
  
 
   function handleInput(event) {
-    let symbol;
-    event.length === 0?
-    setIsLoading(true):
-   symbol=event[0].symbol
-   API.getBars(symbol)
+  if(event){
+    let symbol=event[0].symbol
+    API.getBars(symbol)
    .then(res=>{
      let data = res.data
-     console.log(data)
-     organizeChartData(data)
+     const labels= data.map(day =>{
+      let theDate = new Date(day.startEpochTime*1000)
+      return theDate.toLocaleDateString()
+       });
+     const close = data.map(day=>day.closePrice);
+     const high = data.map(day => day.highPrice);
+     const low = data.map(day => day.lowPrice); 
+     setChartData({labels:labels,close:close,high:high,low:low})
      setIsLoading(false)
     })
    .catch(err =>console.log(err))
-  //  API.getStocks(symbol)
-  //  .then(res=>{
-  //    console.log(res.data)
-  //    setDisplayData(res.data)
-  //  })
-   
+   API.getStock(symbol)
+   .then(res=>{
+     setDisplayData(res.data)
+   })
+  }
+  else{isLoading(true)}
   }
 
   return (
@@ -101,14 +88,17 @@ useEffect(() => {
           </div>
           <Search name="symbolLookup" onChange={(event)=>handleInput(event)} stocks={stocks} />
 
-          <Row>
-            {/* <Col>
-              {displayData.length !== 0 ? StockCard(displayData) : false}
-            </Col> */}
+          
+            <Col>
+              {isLoading? false:<StockCard displayData={displayData} />}
+            </Col>
+<div>
+  {!isLoading?<Chart chartData={chartData} />:<></>}
+</div>
 
-            {isLoading? false:<Chart chartData={chartData} />}
-          </Row>
-        </Col>
+          
+        </Col> 
+        
       </Row>
     </Container>
   );

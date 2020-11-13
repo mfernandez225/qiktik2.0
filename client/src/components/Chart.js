@@ -1,10 +1,9 @@
 import React from "react";
 import {Line} from "react-chartjs-2";
 
-function Chart({chartData}) {  
-
+const Chart = ({chartData}) => {  
   return (
-    <div>
+
       <Line
         data={{
           labels:  chartData.labels,
@@ -36,6 +35,7 @@ function Chart({chartData}) {
           ],
         }}
         options={{
+          maintainAspectRatio:false,
           legend: {
             display: true,
             position: "top",
@@ -59,7 +59,7 @@ function Chart({chartData}) {
           },
         }}
       />
-    </div>
+
   );
 }
 

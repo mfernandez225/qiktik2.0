@@ -32,6 +32,7 @@ export default {
     return axios.get("/api/stocks")
   },
   getBars : (symbol) => {
-    return axios.get(`/api/stocks/${symbol}`)
-  }
+    return axios.get(`/api/stocks/bars/${symbol}`)
+  },
+  getStock : symbol => axios.get(`/api/stocks/${symbol}`)
 };

@@ -1,14 +1,13 @@
 import React from "react";
-import { Card, CardText, CardBody, CardTitle, CardSubtitle } from "reactstrap";
+import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 
-function StockCard(stock) {
+function StockCard({displayData}) {
   return (
     <div>
       <Card>
         <CardBody>
-          <CardTitle>{stock.companyName}</CardTitle>
-          <CardSubtitle>{stock.symbol}</CardSubtitle>
-          <CardText>{stock.changePercent * 100}%</CardText>
+          <CardTitle>{displayData.name}</CardTitle>
+          <CardSubtitle>{displayData.symbol}</CardSubtitle>
         </CardBody>
       </Card>
     </div>
