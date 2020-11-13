@@ -3,7 +3,6 @@ import { Card, CardBody, Row } from "reactstrap";
 import API from "../../utils/API";
 import StockChart from "../StockChart/StockChart";
 import "./style.css";
-const IEX_TOKEN = process.env.REACT_APP_IEX_TOKEN;
 
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -22,8 +21,11 @@ const StockTile = ({ setFavoriteStocks, selectedStock }) => {
   const { symbol } = selectedStock;
 
   useEffect(() => {
+    // fetch("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol +"&apikey=6QFBH662YTYIW2BW")
     fetch(
-      `https://sandbox.iexapis.com/stable/stock/${symbol}/quote?token=${IEX_TOKEN}`
+      "https://sandbox.iexapis.com/stable/stock/" +
+        symbol +
+        "/quote/2?token=Tpk_8ffdae4873fd4f08a97e679741d27746"
     )
       .then((res) => res.json())
       .then(

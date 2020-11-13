@@ -4,7 +4,7 @@ import { Button } from "reactstrap";
 import useAuth from "../../utils/use-auth";
 import "./style.css";
 
-const LogoutButton = () => {
+const Logout = () => {
   const history = useHistory();
   const { logOut } = useAuth();
 
@@ -19,6 +19,7 @@ const LogoutButton = () => {
     <Button
       id="logoutButton"
       className="btn btn-lrg btn-dark fontMeSmall m-3"
+     
       onClick={handleLogout}
     >
       Logout
@@ -26,4 +27,4 @@ const LogoutButton = () => {
   );
 };
 
-export default LogoutButton;
+export default Logout;

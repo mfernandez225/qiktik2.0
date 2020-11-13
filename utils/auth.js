@@ -15,4 +15,4 @@ const authenticate = (req, res, callback) => {
   }
 };
 
-module.exports =  authenticate;
+module.exports = { authenticate };

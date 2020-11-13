@@ -13,9 +13,8 @@
     "chart.js": "^2.9.3",
     "d3": "^4.13.0",
     "gh-pages": "^2.2.0",
-    "highcharts": "^7.2.2",
-    "lodash": "^4.17.20",
-    "lodash.range": "3.2.0",
+    "highcharts": "^7.2.1",
+    "lodash": "^4.17.15",
     "react": "^16.13.1",
     "react-bootstrap-typeahead": "^4.2.2",
     "react-chartjs-2": "^2.9.0",
@@ -24,9 +23,8 @@
     "react-google-login": "^5.1.10",
     "react-google-maps": "^9.4.5",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.4.3",
-    "reactstrap": "^8.4.1",
-    "react-tiny-virtual-list": "2.2.0"
+    "react-scripts": "3.4.1",
+    "reactstrap": "^8.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

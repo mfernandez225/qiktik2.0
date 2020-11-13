@@ -1,0 +1,14 @@
+#maincontain {
+    background-color: #292929;
+    opacity: .92;
+    color: white;
+
+}
+
+#latestHeadline {
+    font-size: 25px;
+}
+
+#articleText {
+    line-height: 1.6;
+}
